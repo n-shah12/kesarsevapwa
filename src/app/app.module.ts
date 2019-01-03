@@ -10,11 +10,13 @@ import { environment } from '../environments/environment';
 
 import { LoginComp } from './login/login.comp';
 import { ESharedModule } from './shared/sharedmodule';
+import { SignUpComponent } from './signup/signup.comp';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComp
+    LoginComp,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .buttonyellow{
+    width: 200px!important;
+    border-radius: 20px;
+    color: #434343;
+    background-color: #fece00;
+  }

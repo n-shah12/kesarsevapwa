@@ -1,0 +1,68 @@
+<!-- Material form login -->
+<div class="loginbackground login">
+
+    <mat-card class="example-card ">
+
+        <!--Card content-->
+        <mat-card-content class="px-lg-5 p-15 text-center">
+            <br />
+            <img style="margin-bottom: 30px" width="150rem" src="./assets/img/logo.png">
+            <!-- Form -->
+            <br />
+            <br />
+            <form class="example-form regiter">
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            person
+                        </i>
+                    </span>
+                    <select matNativeControl required>
+                        <option value="volvo">Sign up as Donor</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            person
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" placeholder="Name" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            email
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" placeholder="Email" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            phone
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" placeholder="Mobile No" value="">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            lock
+                        </i>
+                    </span>
+                    <input matInput class="password" placeholder="Password">
+                </mat-form-field>
+            </form>
+            <!-- Form -->
+            <br />
+            <button class="loginbutton" (click)="onLoinClick()" mat-raised-button>SIGN UP</button>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

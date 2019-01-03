@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="mat-theme">
     <mat-toolbar-row>
-        <span>Leaderboard</span>
+        <span>Volunteer Joining Form</span>
         <span class="example-spacer"></span>
         <mat-icon class="example-icon" [matMenuTriggerFor]="menu">more_vert</mat-icon>
         <mat-menu #menu="matMenu">
@@ -19,3 +19,31 @@
         </mat-menu>
     </mat-toolbar-row>
 </mat-toolbar>
+
+<!--Card content-->
+<div class="example-container p-15">
+    <form class="example-form">
+        <div class="example-container form">
+            <mat-form-field>
+                <input matInput placeholder="Name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Contact No">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="E-mail Id">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Photo id proof number">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Pan Card Number">
+            </mat-form-field>
+        </div>
+    </form>
+    <!-- Form -->
+    <br />
+    <div class="text-center disp-block">
+        <button class="buttonyellow" style="margin-bottom: 20px;margin-top:20px;" mat-raised-button>SAVE</button>
+    </div>
+</div>
