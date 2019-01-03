@@ -1,0 +1,39 @@
+<mat-toolbar color="primary" class="mat-theme">
+    <mat-toolbar-row>
+        <span>Leaderboard</span>
+        <span class="example-spacer"></span>
+        <mat-icon class="example-icon" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                <span>Redial</span>
+            </button>
+            <button mat-menu-item disabled>
+                <mat-icon>voicemail</mat-icon>
+                <span>Check voicemail</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                <span>Disable alerts</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="maincontent">
+    <div class="disp-block text-center p-10 mb-10">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle checked="true" value="bold">Today</mat-button-toggle>
+            <mat-button-toggle value="italic">This Week</mat-button-toggle>
+            <mat-button-toggle value="underline">This Month</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="disp-block text-center p-10 mb-10">
+        <mat-list role="list">
+            <mat-list-item *ngFor="let shoe of leaderlist" role="listitem">
+                <div mat-card-avatar class="example-header-image"></div> {{shoe}}<span class="pull-right">3200</span>
+            </mat-list-item>
+
+        </mat-list>
+
+    </div>
+</div>

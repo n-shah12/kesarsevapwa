@@ -1,0 +1,40 @@
+<!-- Material form login -->
+<div class="loginbackground login">
+
+    <mat-card class="example-card ">
+
+        <!--Card content-->
+        <mat-card-content class="px-lg-5 p-15 text-center">
+            <br />
+            <img style="margin-bottom: 30px" width="230rem" src="./assets/img/logo.png">
+            <!-- Form -->
+            <br />
+            <br />
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            email
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" placeholder="Mobile No" value="">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            lock
+                        </i>
+                    </span>
+                    <input matInput class="password" placeholder="Password">
+                </mat-form-field>
+            </form>
+            <!-- Form -->
+            <br />
+            <br />
+            <button class="loginbutton" (click)="onLoinClick()" mat-raised-button>LOG IN</button>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

@@ -1,0 +1,5 @@
+<router-outlet></router-outlet>
+<nav mat-tab-nav-bar  mat-stretch-tabs  class="homenav" [backgroundColor]="background">
+  <a mat-tab-link [routerLink]="[link.path]"  headerPosition="below"[ngStyle]="{'height': '70px'}" *ngFor="let link of links" (click)="activeLink = link"
+   [active]="activeLink == link"> <i class="material-icons">{{link.icon}}</i> </a>
+</nav>

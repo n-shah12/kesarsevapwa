@@ -1,0 +1,76 @@
+<mat-toolbar color="primary" class="mat-theme">
+    <mat-toolbar-row>
+        <span>Kesar Seva Khichadi</span>
+        <span class="example-spacer"></span>
+        <mat-icon class="example-icon" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                <span>Redial</span>
+            </button>
+            <button mat-menu-item disabled>
+                <mat-icon>voicemail</mat-icon>
+                <span>Check voicemail</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                <span>Disable alerts</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="maincontent">
+    <div class="disp-block text-center">
+        <h2>Welcome to Kesar Sewa!!!</h2>
+        <small class="opeq">Invite friends to pledge against<br />hunger with satvik khichadi.</small>
+    </div>
+    <div class="disp-block text-center mb-10">
+        <button mat-raised-button class="btn btn-lg btn-theme">
+            JOIN THE MOVEMENT
+        </button>
+    </div>
+    <div class="disp-block text-center mb-10">
+        <table class="foursquare">
+            <tr>
+                <td>
+                    <div>
+                        <img width="130px" src="assets/jtm/Pledge.png">
+                        <span>Plegde</span>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <img width="130px" src="assets/jtm/Volunteer.png">
+                        <span>Volunteer</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <img width="130px" src="assets/jtm/invite.png">
+                        <span>Invite</span>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <img width="130px" src="assets/jtm/share.png">
+                        <span>Share</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="disp-block text-center mb-10 bg-white" style="height: 81px;
+    line-height: 5;">
+        <div class="example-button-row">
+            <button mat-raised-button class="btn btn-theme-dark">States</button>
+            <button mat-raised-button class="btn btn-theme-dark">Inspiration</button>
+            <button mat-raised-button class="btn btn-theme-dark">About</button>
+        </div>
+
+    </div>
+
+
+</div>

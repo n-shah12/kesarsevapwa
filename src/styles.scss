@@ -1,0 +1,139 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.example-card{
+    background: transparent;
+}
+
+.text-center{
+    text-align: center;
+}
+
+
+
+.mat-input-element::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: white;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: white;
+  }
+
+  .p-15{
+      padding: 15px;
+  }
+
+  .mb-10{
+      margin-bottom:10px;
+  }
+
+  .text-white{
+      color: white;
+  }
+
+.inputmob{
+    padding-left: 10px;
+}
+
+.password{
+    padding-left: 10px;
+}
+ 
+
+.mat-toolbar.mat-theme{
+    background-color: #fece00;
+    background-image: linear-gradient(#f9e401, #fece00)!important;
+    color: #414143;
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .disp-block{
+      display: block;
+  }
+
+  .homenav .mat-ink-bar{
+      top:0!important;
+  }
+  .homenav {
+    position: fixed!important;
+    bottom: 0px;
+    width: 100%;
+    background-color: #414042;
+}
+
+.homenav .mat-tab-label-active i.material-icons {
+    color: #fcd300!important;
+}
+.homenav .mat-tab-link i.material-icons {
+    font-size: 34px;
+    color: #ffffff;
+}
+
+small{
+    font-size: 80%
+}
+
+.opeq{
+    opacity: 0.8;
+}
+
+.btn.btn-lg{
+    padding: 10px;
+    
+}
+
+.btn.btn-theme{
+    background-color: #fece00;
+    background-image: linear-gradient(#f9e401, #fece00)!important;
+    color: #414143;
+    font-weight: 400;
+    font-size: 150%;
+}
+
+.maincontent{
+    height: calc(100% - 127px);
+    background-color: #e6e7e9;
+    display: block;
+    position: relative;
+    overflow: scroll;
+}
+.mat-button-toggle-checked{
+    background-color: #fece00;
+    background-image: linear-gradient(#f9e401, #fece00)!important;
+    
+}
+
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content{
+    line-height: 40px!important;
+    min-width: 70px;
+}
+.p-10{
+    padding: 10px;
+}
+.pull-right {
+    position: absolute;
+    display: inline-block;
+    right: 20px;
+}

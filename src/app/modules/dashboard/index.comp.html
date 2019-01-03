@@ -1,0 +1,59 @@
+<mat-toolbar color="primary" class="mat-theme">
+  <mat-toolbar-row>
+    <span>Kesar Seva Khichadi</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<div class="bottompanel">
+  <table style="width:100%;height:100%">
+    <tr>
+      <td class="text-center height">
+        <div class="lr">
+          <a><img src="assets/img/donate-now.png"></a>
+          <div class="text">
+            <span>Donate Now</span>
+          </div>
+        </div>
+      </td>
+      <td class="text-center height" style="
+      vertical-align: top;
+      padding-top: 20px;
+  "> 
+        <div class="center"> 
+          <a><img src="assets/img/order-now.png"></a>
+          <div class="text">
+            <span class="disp-block">Order Now</span>
+            <span class="disp-block" style="font-size:11px">Rs. 10 per plate</span>
+          </div>
+        </div>
+      </td>
+      <td class="text-center height">
+        <div class="lr">
+          <a><img src="assets/img/volunteer.png"></a>
+          <div class="text">
+            <span>Join as Volunteer</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

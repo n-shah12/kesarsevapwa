@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="mat-theme">
+    <mat-toolbar-row>
+        <span>Donar Profile</span>
+        <span class="example-spacer"></span>
+        <mat-icon class="example-icon" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                <span>Redial</span>
+            </button>
+            <button mat-menu-item disabled>
+                <mat-icon>voicemail</mat-icon>
+                <span>Check voicemail</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                <span>Disable alerts</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="maincontent">
+    <div class="disp-block text-center mb-10 ">
+        <div class="profile"><img src="assets/img/" ></div>
+        <span class="name">Nikul Kumbhani</span>
+    </div>
+    <div class="disp-block text-center">
+        <span class="prline">Contact No +91 9010293230</span>
+        <span class="prline">Email id kesarsewa@gmail.com</span>
+        <span class="prline">Driving License AKDAJFK</span>
+        <span class="prline">Pan Card No SFEWEREBERQ</span>
+        <span class="prline">Address 213, binsadsam ,asdih ,city 213213</span>
+    </div>
+
+
+</div>

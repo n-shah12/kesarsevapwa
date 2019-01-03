@@ -1,0 +1,52 @@
+agm-map {
+    height: calc(100% - 305px);
+  }
+  .bottompanel{
+    height: 180px;
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    bottom: 71px;
+  }
+
+  .height{
+      height: 100px;
+  }
+
+  .lr {
+    border-radius: 50%;
+    /* border: 1px solid #000; */
+    height: 65px;
+    width: 65px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}
+
+  .lr img {
+    height: 100%;
+}
+.center {
+    height: 100px;
+    position: relative;
+}
+
+.center img {
+    height: 100%;
+}
+.center .text{
+    position: absolute;
+    width: 100%;
+    font-size: 15px;
+    z-index: 1111111;
+    text-align: center;
+}
+
+.lr .text {
+    position: absolute;
+    width: 100%;
+    font-size: 12px;
+    /* left: -22px; */
+    z-index: 1111111;
+    text-align: center;
+}
