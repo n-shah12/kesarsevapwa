@@ -9,6 +9,9 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule, MatSelect } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule } from '@angular/material/button'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
     declarations: [],
     imports: [
@@ -20,7 +23,10 @@ import { MatButtonModule } from '@angular/material/button'
         MatSelectModule,
         MatFormFieldModule,
         MatButtonModule,
-        CommonModule
+        CommonModule,
+        MatSlideToggleModule,
+        MatDialogModule
+        
     ],
     exports: [MatToolbarModule,
         MatIconModule,
@@ -30,7 +36,9 @@ import { MatButtonModule } from '@angular/material/button'
         MatSelectModule,
         MatFormFieldModule,
         MatButtonModule,
-        CommonModule],
+        CommonModule,
+        MatSlideToggleModule,
+        MatDialogModule],
     providers: [],
 })
 export class ESharedModule { }

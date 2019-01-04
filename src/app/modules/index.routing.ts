@@ -30,6 +30,9 @@ export const routes: Routes = [
                     },
                     {
                         path: 'vjfrm', component: VJFRMComponent
+                    },
+                    {
+                        path: 'volunteer', loadChildren: './volunteer/index.module#VolunteerModule',
                     }
                 ]
             }

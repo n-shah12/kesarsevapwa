@@ -1,0 +1,63 @@
+<mat-toolbar color="primary" class="mat-theme">
+  <mat-toolbar-row>
+    <span>User Name</span>
+    <span class="example-spacer"></span>
+    <mat-slide-toggle
+    class="example-margin"
+    [color]="color"
+    [checked]="checked"
+    [disabled]="disabled"></mat-slide-toggle>
+    
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<div class="bottompanel">
+  <table class="tablebottom">
+    <tr>
+      <td class="text-center height">
+        <div class="lr">
+          <a>
+            <div class="circlesmall">
+              <span style="font-size: 16px;padding-top: 9px;">154</span>
+              <span>plates</span>
+            </div>
+          </a>
+          <div class="text">
+            <span>Available</span>
+          </div>
+        </div>
+      </td>
+      <td class="text-center height" style="
+      vertical-align: top;padding-top: 20px;">
+        <div class="center">
+          <a>
+            <div class="circlecenter">
+              <div class="text">
+                <span class="disp-block">Distribute</span>
+               
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </td>
+      <td class="text-center height">
+        <div class="lr">
+          <a>
+            <div class="circlesmall">
+                <i class="material-icons refillLabel">
+                    add
+                </i>
+            </div>
+          </a>
+          <div class="text">
+            <span >Refill</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
