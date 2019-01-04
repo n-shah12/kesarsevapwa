@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { VDashComponent } from './index.comp';
 import { CommonModule } from '@angular/common';
 import { ESharedModule } from 'src/app/shared/sharedmodule';
-import { DonateComponent } from './donate/donate.comp';
+import { AgmCoreModule } from '@agm/core';
 export const routes: Routes = [
 
   {
@@ -18,9 +18,11 @@ export const routes: Routes = [
     FormsModule,
     CommonModule,
     RouterModule.forChild(routes),
-    ESharedModule
+    ESharedModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyMQKcezGs03uuOdzjO7nrp6XDEgCygCI'
+    })
   ],
-    
-  declarations: [VDashComponent, DonateComponent]
+  declarations: [VDashComponent]
 })
 export class VDashboardModule { }
