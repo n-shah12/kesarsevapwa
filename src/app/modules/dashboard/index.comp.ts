@@ -10,61 +10,68 @@ import { GlobalService } from 'src/app/common/global';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private global:GlobalService) {}
+  constructor(public dialog: MatDialog, private global: GlobalService) { }
 
   openDialog() {
     this.dialog.open(DonateDialogComponent, {
       data: {
         animal: ''
       },
-      minWidth:'250PX'
+      minWidth: '250PX'
     });
   }
 
   title: string = 'My first AGM project';
   lat: number = 23.025165;
   lng: number = 72.572221;
+
   ngOnInit(): void {
     this.getLocation();
   }
 
-//function that gets the location and returns it
- getLocation() {
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(this.showPosition ,(err)=>{
-     console.log(this.locationError(err));
-    });
-  } else {
-    console.log("Geo Location not supported by browser");
+  //function that gets the location and returns it
+  getLocation() {
+    let that = this;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        that.showPosition(position);
+      }, (err) => {
+        console.log(this.locationError(err));
+      });
+    } else {
+      console.log("Geo Location not supported by browser");
+    }
   }
-}
-//function that retrieves the position
-showPosition(position) {
-  var location = {
-    longitude: position.coords.longitude,
-    latitude: position.coords.latitude
+  //function that retrieves the position
+  showPosition(position) {
+    console.log(this);
+    var location = {
+      longitude: position.coords.longitude,
+      latitude: position.coords.latitude
+    }
+    this.lat = Number(position.coords.latitude);
+    this.lng = Number(position.coords.longitude);
+    console.log(location)
   }
-  console.log(location)
-}
 
 
-locationError(error) {
-  switch(error.code) {
+  locationError(error) {
+    switch (error.code) {
       case error.PERMISSION_DENIED:
-          return "User denied the request for Geolocation."
-          break;
+        return "User denied the request for Geolocation."
+        break;
       case error.POSITION_UNAVAILABLE:
-          return "Location information is unavailable."
-          break;
+        return "Location information is unavailable."
+        break;
       case error.TIMEOUT:
-          return "The request to get user location timed out."
-          break;
+        return "The request to get user location timed out."
+        break;
       case error.UNKNOWN_ERROR:
-          return "An unknown error occurred."
-          break;
+        return "An unknown error occurred."
+        break;
+    }
   }
-}
-//request for location
+  //request for location
 
 
 

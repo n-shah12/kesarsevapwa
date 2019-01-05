@@ -8,11 +8,14 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<agm-map [latitude]="lat" [longitude]="lng">
+<agm-map [latitude]="lat" [zoom]="12" [longitude]="lng" >
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
 <div class="floatingtextBox">
-    
+  <div class="inputWrapper">
+    <input type="text" placeholder="Choose Location">
+    <i class="material-icons">search</i>
+  </div>
 </div>
 
 <div class="bottompanel">
