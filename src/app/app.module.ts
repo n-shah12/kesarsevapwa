@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { LoginComp } from './login/login.comp';
 import { ESharedModule } from './shared/sharedmodule';
 import { SignUpComponent } from './signup/signup.comp';
+import { LoginService } from '../app/login/login.service';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,14 @@ import { SignUpComponent } from './signup/signup.comp';
     SignUpComponent
   ],
   imports: [
+    HttpClientModule, 
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ESharedModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { LoginService } from './login.service';
 
 @Component({
     selector: 'app-login',
@@ -7,11 +9,20 @@ import { Router } from '@angular/router';
     styleUrls: ['./login.comp.scss']
 })
 export class LoginComp implements OnInit {
-    constructor(private router: Router) { }
+    loginForm:any={
+        username:"",
+        password:""
+    };
+    
+    constructor(private router: Router, private http: HttpClient,
+        private loginService_ : LoginService) { }
 
     ngOnInit(): void { }
 
     onLoinClick(){
+        console.log(this.loginForm);   
         this.router.navigate(['/'])
     }
+    
+  
 }
