@@ -120,7 +120,7 @@ small{
 }
 
 .maincontent{
-    height: calc(100% - 127px);
+    height: calc(100vh - 127px);
     background-color: #e6e7e9;
     display: block;
     position: relative;
@@ -185,4 +185,21 @@ small{
 
 .mat-form-field-appearance-legacy .mat-form-field-infix{
     border-top: 0px;
+}
+.toolbar-menu-button{
+    min-width:0px!important;
+    padding: 0px!important;
+}
+
+.mat-drawer-inner-container{
+    min-width: 200px;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #ffcc00;
+}
+
+a.mat-list-item.active {
+    background-color: #fece00;
+    background-image: linear-gradient(#f9e401, #fece00) !important;
 }

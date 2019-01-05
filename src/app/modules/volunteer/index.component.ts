@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from 'src/app/common/global';
 
 @Component({
     selector: 'app-vol',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-    constructor() { }
+    constructor(private global:GlobalService) { }
 
     ngOnInit(): void { }
 }

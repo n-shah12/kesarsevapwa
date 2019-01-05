@@ -1,5 +1,35 @@
-<router-outlet></router-outlet>
-<nav mat-tab-nav-bar  mat-stretch-tabs  class="homenav" [backgroundColor]="background">
-  <a mat-tab-link [routerLink]="[link.path]"  headerPosition="below"[ngStyle]="{'height': '70px'}" *ngFor="let link of links" (click)="activeLink = link"
-   [active]="activeLink == link"> <i class="material-icons">{{link.icon}}</i> </a>
-</nav>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="hover">
+   
+      <mat-nav-list>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/home' ]" routerLinkActive="active">Home</a>
+          
+
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/dp' ]" routerLinkActive="active">Donor Profile</a>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/donorlist' ]" routerLinkActive="active">Donor List</a>
+          
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/leaderboard' ]" routerLinkActive="active">Leader Boards</a>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/volunteer' ]" routerLinkActive="active">Volunteer</a>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtmv' ]" routerLinkActive="active">Join The Movement</a>
+          
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtm' ]" routerLinkActive="active">Log Out</a>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/login' ]" routerLinkActive="active">Login</a>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/signup' ]" routerLinkActive="active">Sign Up</a>
+          <!-- <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtm' ]" routerLinkActive="active">Settings</a> -->
+
+      </mat-nav-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+
+
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <nav mat-tab-nav-bar mat-stretch-tabs class="homenav" [backgroundColor]="background">
+    <a mat-tab-link [routerLink]="[link.path]" headerPosition="below" 
+    [ngStyle]="{'height': '70px'}" *ngFor="let link of links"
+    routerLinkActive="active" (click)="activeLink = link" [active]="activeLink == link"> <i class="material-icons">{{link.icon}}</i> </a>
+  </nav>
+</mat-drawer-container>

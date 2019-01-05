@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DonateDialogComponent } from './donate/donate.comp';
 import { MatDialog } from '@angular/material';
+import { GlobalService } from 'src/app/common/global';
 
 @Component({
   templateUrl: 'index.comp.html',
@@ -9,7 +10,7 @@ import { MatDialog } from '@angular/material';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private global:GlobalService) {}
 
   openDialog() {
     this.dialog.open(DonateDialogComponent, {
@@ -21,9 +22,50 @@ export class DashboardComponent implements OnInit {
   }
 
   title: string = 'My first AGM project';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 23.025165;
+  lng: number = 72.572221;
   ngOnInit(): void {
-
+    this.getLocation();
   }
+
+//function that gets the location and returns it
+ getLocation() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(this.showPosition ,(err)=>{
+     console.log(this.locationError(err));
+    });
+  } else {
+    console.log("Geo Location not supported by browser");
+  }
+}
+//function that retrieves the position
+showPosition(position) {
+  var location = {
+    longitude: position.coords.longitude,
+    latitude: position.coords.latitude
+  }
+  console.log(location)
+}
+
+
+locationError(error) {
+  switch(error.code) {
+      case error.PERMISSION_DENIED:
+          return "User denied the request for Geolocation."
+          break;
+      case error.POSITION_UNAVAILABLE:
+          return "Location information is unavailable."
+          break;
+      case error.TIMEOUT:
+          return "The request to get user location timed out."
+          break;
+      case error.UNKNOWN_ERROR:
+          return "An unknown error occurred."
+          break;
+  }
+}
+//request for location
+
+
+
 }

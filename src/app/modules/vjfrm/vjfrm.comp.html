@@ -1,25 +1,13 @@
 <mat-toolbar color="primary" class="mat-theme">
-    <mat-toolbar-row>
-        <span>Volunteer Joining Form</span>
-        <span class="example-spacer"></span>
-        <mat-icon class="example-icon" [matMenuTriggerFor]="menu">more_vert</mat-icon>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-                <mat-icon>dialpad</mat-icon>
-                <span>Redial</span>
+        <mat-toolbar-row>
+            <button mat-button (click)="global.drawer.toggle()" class="toolbar-menu-button">
+                <i class="material-icons">dehaze</i>
             </button>
-            <button mat-menu-item disabled>
-                <mat-icon>voicemail</mat-icon>
-                <span>Check voicemail</span>
-            </button>
-            <button mat-menu-item>
-                <mat-icon>notifications_off</mat-icon>
-                <span>Disable alerts</span>
-            </button>
-        </mat-menu>
-    </mat-toolbar-row>
-</mat-toolbar>
-
+            <span>Volunteer Joining Form</span>
+            <span class="example-spacer"></span>
+        
+        </mat-toolbar-row>
+    </mat-toolbar>
 <!--Card content-->
 <div class="example-container p-15">
     <form class="example-form">

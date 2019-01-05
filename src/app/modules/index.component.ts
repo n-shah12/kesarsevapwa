@@ -3,13 +3,16 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { from } from 'rxjs';
+import { MatDrawer } from '@angular/material';
+import { GlobalService } from '../common/global';
 @Component({
   selector: 'app-modules',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss']
 })
 export class IndexLayoutComponent implements OnInit {
-
+  @ViewChild('drawer')
+  drawer: MatDrawer;
   links = [{ 'name': '', 'icon': 'home', 'path': '/' },
   { 'name': '', 'icon': 'person', 'path': '/dp' },
   { 'name': '', 'icon': 'local_play', 'path': '/jtmv' },
@@ -36,7 +39,7 @@ export class IndexLayoutComponent implements OnInit {
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement = document.body;
-  constructor(private router: Router) {
+  constructor(private router: Router, private global:GlobalService) {
     this.env = environment;
 
 
@@ -57,6 +60,8 @@ export class IndexLayoutComponent implements OnInit {
 
 
     this.getFavmenu();
+   this.global.drawer = this.drawer;
+
   }
   // saveMenu()
   // {

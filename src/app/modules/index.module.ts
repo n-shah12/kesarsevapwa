@@ -10,6 +10,8 @@ import { LBComponent } from './leaderboard/lb.comp';
 import { MatListModule } from '@angular/material/list'
 import { DPComponent } from './donorprofile/dp.comp';
 import { VJFRMComponent } from './vjfrm/vjfrm.comp';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { DLComponent } from './donorlist/dl.comp';
 
 @NgModule({
   imports: [
@@ -18,8 +20,9 @@ import { VJFRMComponent } from './vjfrm/vjfrm.comp';
     ESharedModule,
     MatTabsModule,
     MatButtonToggleModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule
   ],
-  declarations: [IndexLayoutComponent, JTMVComponent, LBComponent, DPComponent,VJFRMComponent]
+  declarations: [IndexLayoutComponent, JTMVComponent, LBComponent, DPComponent,VJFRMComponent,DLComponent]
 })
 export class IndexModule { }
