@@ -5,6 +5,7 @@ import { DashboardComponent } from './index.comp';
 import { CommonModule } from '@angular/common';
 import { ESharedModule } from 'src/app/shared/sharedmodule';
 import { AgmCoreModule } from '@agm/core';
+import { DonateDialogComponent } from './donate/donate.comp';
 export const routes: Routes = [
 
   {
@@ -23,6 +24,8 @@ export const routes: Routes = [
       apiKey: 'AIzaSyDyMQKcezGs03uuOdzjO7nrp6XDEgCygCI'
     })
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent, DonateDialogComponent],
+  entryComponents: [DonateDialogComponent]
+
 })
 export class DashboardModule { }
