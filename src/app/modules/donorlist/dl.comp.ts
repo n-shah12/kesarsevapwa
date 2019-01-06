@@ -8,7 +8,7 @@ import { GlobalService } from 'src/app/common/global';
 })
 export class DLComponent implements OnInit {
     leaderlist = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-    constructor(private global:GlobalService) { }
+    constructor(public global:GlobalService) { }
 
     ngOnInit(): void { }
 }

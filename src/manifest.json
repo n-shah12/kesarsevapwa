@@ -1,7 +1,7 @@
 {
-  "name": "ahfpwa",
-  "short_name": "ahfpwa",
-  "theme_color": "#1976d2",
+  "name": "KesarSewa",
+  "short_name": "KesarSewa",
+  "theme_color": "#fece00",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",

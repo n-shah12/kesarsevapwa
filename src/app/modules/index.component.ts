@@ -39,7 +39,7 @@ export class IndexLayoutComponent implements OnInit {
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement = document.body;
-  constructor(private router: Router, private global:GlobalService) {
+  constructor(private router: Router, public global:GlobalService) {
     this.env = environment;
 
 

@@ -7,7 +7,7 @@ import { GlobalService } from 'src/app/common/global';
     styleUrls: ['./jtmv.comp.scss']
 })
 export class JTMVComponent implements OnInit {
-    constructor(private global:GlobalService) { }
+    constructor(public global:GlobalService) { }
 
     ngOnInit(): void { }
 }

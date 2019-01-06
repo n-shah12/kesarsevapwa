@@ -7,7 +7,7 @@ import { GlobalService } from 'src/app/common/global';
     styleUrls: ['./dp.comp.scss']
 })
 export class DPComponent implements OnInit {
-    constructor(private global:GlobalService) { }
+    constructor(public global:GlobalService) { }
 
     ngOnInit(): void { }
 }

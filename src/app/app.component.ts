@@ -7,7 +7,7 @@ import { SwUpdate } from '@angular/service-worker';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ahfpwa';
+  title = 'kesarsewa';
   update: boolean = false;
 
   constructor(updates: SwUpdate) {

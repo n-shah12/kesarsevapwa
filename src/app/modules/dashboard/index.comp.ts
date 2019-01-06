@@ -10,7 +10,7 @@ import { GlobalService } from 'src/app/common/global';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private global: GlobalService) { }
+  constructor(public dialog: MatDialog, public global: GlobalService) { }
 
   openDialog() {
     this.dialog.open(DonateDialogComponent, {

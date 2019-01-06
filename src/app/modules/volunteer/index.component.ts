@@ -7,7 +7,7 @@ import { GlobalService } from 'src/app/common/global';
     styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-    constructor(private global:GlobalService) { }
+    constructor(public global:GlobalService) { }
 
     ngOnInit(): void { }
 }

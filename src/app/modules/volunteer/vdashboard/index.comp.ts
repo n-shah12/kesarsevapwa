@@ -11,7 +11,7 @@ export interface DialogData {
   styleUrls: ['./index.comp.scss']
 })
 export class VDashComponent implements OnInit {
-  constructor(public dialog: MatDialog, private global: GlobalService) { }
+  constructor(public dialog: MatDialog, public global: GlobalService) { }
   openRefillDialog() {
     this.dialog.open(RefillDialogComponent, {
       data: {

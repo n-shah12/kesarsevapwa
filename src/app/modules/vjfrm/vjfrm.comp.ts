@@ -7,7 +7,7 @@ import { GlobalService } from 'src/app/common/global';
     styleUrls: ['./vjfrm.comp.scss']
 })
 export class VJFRMComponent implements OnInit {
-    constructor(private global:GlobalService) { }
+    constructor(public global:GlobalService) { }
 
     ngOnInit(): void { }
 }
