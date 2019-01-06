@@ -9,20 +9,28 @@ import { LoginService } from './login.service';
     styleUrls: ['./login.comp.scss']
 })
 export class LoginComp implements OnInit {
-    loginForm:any={
-        username:"",
-        password:""
+    loginForm: any = {
+        username: "",
+        password: ""
     };
-    
+
     constructor(private router: Router, private http: HttpClient,
-        private loginService_ : LoginService) { }
+        private loginService_: LoginService) { }
 
     ngOnInit(): void { }
 
-    onLoinClick(){
-        console.log(this.loginForm);   
+    onLoinClick() {
+        console.log(this.loginForm);
+        this.loginService_.Login({ 'userName': this.loginForm.username, 'password': this.loginForm.password }).subscribe((data) => {
+
+        }, (err) => {
+
+        }, () => {
+
+        })
         this.router.navigate(['/'])
+
     }
-    
-  
+
+
 }
