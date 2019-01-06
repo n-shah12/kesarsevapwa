@@ -29,7 +29,7 @@
 
   <nav mat-tab-nav-bar mat-stretch-tabs class="homenav" [backgroundColor]="background">
     <a mat-tab-link [routerLink]="[link.path]" headerPosition="below" 
-    [ngStyle]="{'height': '70px'}" *ngFor="let link of links"
+    [ngStyle]="{'height': '50px'}" *ngFor="let link of links"
     routerLinkActive="active" (click)="activeLink = link" [active]="activeLink == link"> <i class="material-icons">{{link.icon}}</i> </a>
   </nav>
 </mat-drawer-container>

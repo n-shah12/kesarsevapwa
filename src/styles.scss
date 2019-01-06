@@ -8,6 +8,7 @@ html,body{
     padding: 0;
     height: 100%;
     width: 100%;
+    font-family: 'Roboto,Helvetica,Arial,sans-serif';
 }
 
 .example-card{
@@ -120,7 +121,7 @@ small{
 }
 
 .maincontent{
-    height: calc(100vh - 127px);
+    height: calc(100vh - 106px);
     background-color: #e6e7e9;
     display: block;
     position: relative;
@@ -202,4 +203,8 @@ small{
 a.mat-list-item.active {
     background-color: #fece00;
     background-image: linear-gradient(#f9e401, #fece00) !important;
+}
+
+.example-sidenav-content{
+    height: 100%;
 }
