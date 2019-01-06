@@ -17,7 +17,7 @@
                             email
                         </i>
                     </span>
-                    <input matInput class="inputmob" placeholder="Mobile No" value="">
+                    <input matInput class="inputmob" ng-model="loginForm.username" placeholder="Emailid" value="">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
@@ -26,7 +26,7 @@
                             lock
                         </i>
                     </span>
-                    <input matInput class="password" placeholder="Password">
+                    <input matInput class="password" ng-model="loginForm.password" placeholder="Password">
                 </mat-form-field>
             </form>
             <!-- Form -->
