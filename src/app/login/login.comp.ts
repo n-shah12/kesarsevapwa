@@ -23,12 +23,14 @@ export class LoginComp implements OnInit {
         console.log(this.loginForm);
         this.loginService_.Login({ 'userName': this.loginForm.username, 'password': this.loginForm.password }).subscribe((data) => {
 
+            this.router.navigate(['/'])
+
         }, (err) => {
 
         }, () => {
 
         })
-        this.router.navigate(['/'])
+        
 
     }
 
