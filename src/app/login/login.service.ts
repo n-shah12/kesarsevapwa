@@ -19,7 +19,7 @@ export class LoginService {
   RegisterUser(data: any) {
     // let options = this.createRequestOptions();
     //     return this.http.post(`${environment.apiurl}/userMaster`,data);
-    return this.dataservice.post('/userMaster', data);
+    return this.dataservice.post('userMaster', data);
 
   }
 
@@ -27,7 +27,7 @@ export class LoginService {
     // let options = this.createRequestOptions();
     //     return this.http.post(`${environment.apiurl}/getLogin`,data)
     //     .pipe(map(res =>  res));
-    return this.dataservice.post('/getLogin', data);
+    return this.dataservice.post('getLogin', data);
   }
 
   SaveDefaultLanguage(data: any) {
@@ -35,7 +35,7 @@ export class LoginService {
     //  let options = this.createRequestOptions();
     //  return this.http.post(`${environment.apiurl}/api/app/savedefaultlanguage`,data)
     //  .pipe(map(res =>  res));
-    return this.dataservice.post('/api/app/savedefaultlanguage', data)
+    return this.dataservice.post('api/app/savedefaultlanguage', data)
   }
 
   GetDefaultLanguage(userid) {
@@ -43,7 +43,7 @@ export class LoginService {
     //  let options = this.createRequestOptions();
     //  return this.http.get(`${environment.apiurl}/api/getdefaultlanguagebyuserid/${userid}`)
     //  .pipe(map(res =>  res));
-    return this.dataservice.get('/api/getdefaultlanguagebyuserid/${userid}', {})
+    return this.dataservice.get('api/getdefaultlanguagebyuserid/${userid}', {})
 
   }
 

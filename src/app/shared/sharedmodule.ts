@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 @NgModule({
     declarations: [],
     imports: [
@@ -25,7 +27,9 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatButtonModule,
         CommonModule,
         MatSlideToggleModule,
-        MatDialogModule
+        MatDialogModule,
+        HttpModule,
+        FormsModule
         
     ],
     exports: [MatToolbarModule,
@@ -38,6 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatButtonModule,
         CommonModule,
         MatSlideToggleModule,
+        FormsModule,
+        HttpModule,
         MatDialogModule],
     providers: [],
 })
