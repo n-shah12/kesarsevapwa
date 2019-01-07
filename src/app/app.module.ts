@@ -12,6 +12,7 @@ import { LoginComp } from './login/login.comp';
 import { ESharedModule } from './shared/sharedmodule';
 import { SignUpComponent } from './signup/signup.comp';
 import { LoginService } from '../app/login/login.service';
+import { SignupService } from '../app/signup/signup.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { LoginService } from '../app/login/login.service';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ESharedModule
   ],
-  providers: [LoginService],
+  providers: [LoginService,SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

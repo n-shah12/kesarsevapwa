@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { MatSlideToggle, MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { RefillDialogComponent } from './refill/refill.comp';
 import { GlobalService } from 'src/app/common/global';
+import { Globals } from "../../../const/globals";
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
 }
@@ -20,14 +22,23 @@ export class VDashComponent implements OnInit {
       minWidth: '250PX'
     });
   }
-
-  title: string = 'My first AGM project';
+title: string = 'My first AGM project';
   lat: number = 51.678418;
   lng: number = 7.809007;
+  user:any;
+  issendlocation:boolean=true;
+  
   ngOnInit(): void {
     this.getLocation();
+    var userdata= JSON.parse(Globals.get());
+    this.user=userdata.Name;
+    
   }
+  sendlocationdetail(){
+  debugger; 
 
+ }
+  
   //function that gets the location and returns it
   getLocation() {
     if (navigator.geolocation) {
@@ -44,7 +55,8 @@ export class VDashComponent implements OnInit {
       longitude: position.coords.longitude,
       latitude: position.coords.latitude
     }
-    console.log(location)
+    
+    console.log(location);
   }
 
 

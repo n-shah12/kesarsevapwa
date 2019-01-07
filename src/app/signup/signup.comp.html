@@ -11,7 +11,7 @@
             <br />
             <br />
             <form class="example-form regiter">
-                <mat-form-field class="example-full-width">
+                <!-- <mat-form-field class="example-full-width">
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
                             person
@@ -23,14 +23,14 @@
                         <option value="mercedes">Mercedes</option>
                         <option value="audi">Audi</option>
                     </select>
-                </mat-form-field>
+                </mat-form-field> -->
                 <mat-form-field class="example-full-width">
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
                             person
                         </i>
                     </span>
-                    <input matInput class="inputmob" placeholder="Name" value="">
+                    <input matInput class="inputmob" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Name" placeholder="Name" value="">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                     <span matPrefix class="inputicon">
@@ -38,7 +38,7 @@
                             email
                         </i>
                     </span>
-                    <input matInput class="inputmob" placeholder="Email" value="">
+                    <input matInput class="inputmob" placeholder="Email" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.EmailID" value="">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                     <span matPrefix class="inputicon">
@@ -46,7 +46,7 @@
                             phone
                         </i>
                     </span>
-                    <input matInput class="inputmob" placeholder="Mobile No" value="">
+                    <input matInput class="inputmob" placeholder="Mobile No" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.MobileNo" value="">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
@@ -55,7 +55,7 @@
                             lock
                         </i>
                     </span>
-                    <input matInput class="password" placeholder="Password">
+                    <input matInput class="password" type="password" placeholder="Password" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Password" >
                 </mat-form-field>
             </form>
             <!-- Form -->
