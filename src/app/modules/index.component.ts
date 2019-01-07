@@ -82,7 +82,7 @@ export class IndexLayoutComponent implements OnInit {
 
   logout() {
     // this.env.isAuthenticated = false;
-    Globals.setuser(JSON.stringify(objuser[0]));
+    this.global.clearuser();
     this.router.navigateByUrl('/');
   }
 }

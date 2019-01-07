@@ -7,7 +7,7 @@ import { GlobalService } from 'src/app/common/global';
     styleUrls: ['./dl.comp.scss']
 })
 export class DLComponent implements OnInit {
-    leaderlist = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+    leaderlist = ['A', 'B', 'C', 'D', 'D'];
     constructor(public global:GlobalService) { }
 
     ngOnInit(): void { }

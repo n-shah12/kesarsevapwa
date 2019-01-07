@@ -3,7 +3,7 @@
         <button mat-button (click)="global.drawer.toggle()" class="toolbar-menu-button">
             <i class="material-icons">dehaze</i>
         </button>
-        <span>Donar Profile</span>
+        <span>Profile</span>
         <span class="example-spacer"></span>
      
     </mat-toolbar-row>
@@ -11,15 +11,15 @@
 
 <div class="maincontent">
     <div class="disp-block text-center mb-10 ">
-        <div class="profile"><img src="assets/img/"></div>
-        <span class="name">{{user.name}}</span>
+        <div class="profile"></div>
+        <span class="name" style="text-transform:capitalize">{{user.Name}}</span>
     </div>
     <div class="disp-block text-center">
-        <span class="prline">Contact No +91 9010293230</span>
-        <span class="prline">Email id kesarsewa@gmail.com</span>
-        <span class="prline">Driving License AKDAJFK</span>
-        <span class="prline">Pan Card No SFEWEREBERQ</span>
-        <span class="prline">Address 213, binsadsam ,asdih ,city 213213</span>
+        <span class="prline">Contact No +91 {{user.MobileNo}}</span>
+        <span class="prline">Email id {{user.EmailID}}</span>
+        <!-- <span class="prline">Driving License AKDAJFK</span>
+        <span class="prline">Pan Card No SFEWEREBERQ</span> -->
+        <span class="prline" *ngIf="user.Address">Address {{ user.Address}}</span>
     </div>
 
 

@@ -13,7 +13,7 @@ export class GlobalService {
     }
 
     public clearuser() {
-        localStorage.setItem('user', undefined);
+        localStorage.removeItem('user');
     }
 
     public getuser() {
