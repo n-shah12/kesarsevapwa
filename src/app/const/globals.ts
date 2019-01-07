@@ -1,5 +1,5 @@
 export class Globals {
-    static weburl: String = window.location.hostname;
+    static weburl: String =  '142.93.214.212' // window.location.hostname;
     static port: String = '8082';
 
     serviceurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/kesarapi/';
@@ -35,11 +35,5 @@ export class Globals {
         }
     }
 
-    public static setuser(userdata){
-        localStorage.setItem('user',userdata);
-    }
-
-    public static get(){
-        return localStorage.getItem('user');
-    }
+   
 }

@@ -30,7 +30,7 @@ title: string = 'My first AGM project';
   
   ngOnInit(): void {
     this.getLocation();
-    var userdata= JSON.parse(Globals.get());
+    var userdata= this.global.getuser();
     this.user=userdata.Name;
     
   }

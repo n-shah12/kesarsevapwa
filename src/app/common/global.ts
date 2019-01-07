@@ -6,8 +6,18 @@ import { MatDrawer } from '@angular/material';
 })
 export class GlobalService {
 
-    drawer :MatDrawer;
+    drawer: MatDrawer;
 
-    
+    public setuser(userdata) {
+        localStorage.setItem('user', userdata);
+    }
+
+    public clearuser() {
+        localStorage.setItem('user', undefined);
+    }
+
+    public getuser() {
+        return JSON.parse((localStorage.getItem('user') || '{}'));
+    }
 
 }

@@ -12,7 +12,7 @@
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/volunteer' ]" routerLinkActive="active">Volunteer</a>
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtmv' ]" routerLinkActive="active">Join The Movement</a>
           
-          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtm' ]" routerLinkActive="active">Log Out</a>
+          <a mat-list-item (click)="drawer.toggle();logout();"  routerLinkActive="active">Log Out</a>
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/login' ]" routerLinkActive="active">Login</a>
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/signup' ]" routerLinkActive="active">Sign Up</a>
           <!-- <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtm' ]" routerLinkActive="active">Settings</a> -->

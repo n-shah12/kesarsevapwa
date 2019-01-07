@@ -63,6 +63,8 @@ export class IndexLayoutComponent implements OnInit {
    this.global.drawer = this.drawer;
 
   }
+
+  
   // saveMenu()
   // {
   //   this.favmenu.postFavmenu({
@@ -80,6 +82,7 @@ export class IndexLayoutComponent implements OnInit {
 
   logout() {
     // this.env.isAuthenticated = false;
-    this.router.navigateByUrl('/login');
+    Globals.setuser(JSON.stringify(objuser[0]));
+    this.router.navigateByUrl('/');
   }
 }
