@@ -1,6 +1,6 @@
 export class Globals {
-    static weburl: String = window.location.hostname;
-    static port: String = '3000';
+    static weburl: String = 'http://142.93.214.212';
+    static port: String = '8082';
 
     serviceurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/';
     uploadurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/images/';
