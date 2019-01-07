@@ -1,8 +1,15 @@
 export class Globals {
+<<<<<<< HEAD
     static weburl: String = 'http://142.93.214.212';
     static port: String = '8082';
 
     serviceurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/';
+=======
+    static weburl: String = window.location.hostname;
+    static port: String = '8082';
+    
+    serviceurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/kesarapi/';
+>>>>>>> aa70bcf17a6acca93092910e3e1d153940e20911
     uploadurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/images/';
 
     filepath: String = 'www\\uploads\\';
@@ -33,5 +40,13 @@ export class Globals {
         else {
             return {};
         }
+    }
+
+    public static setuser(userdata){
+        localStorage.setItem('user',userdata);
+    }
+
+    public static get(){
+        return localStorage.getItem('user');
     }
 }
