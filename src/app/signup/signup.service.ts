@@ -22,7 +22,7 @@ export class SignupService {
     // let options = this.createRequestOptions();
     //     return this.http.post(`${environment.apiurl}/userMaster`,data);
     //return this.dataservice.post('createUser', data);
-    return this.http.post(`${environment.apiurl}/createUser`, data).pipe(map((res: Response) => res));
+    return this.dataservice.post('createUser', data);
   }
 
   GetUser(data: any) {

@@ -1,8 +1,8 @@
 export class Globals {
-    static weburl: String = 'http://142.93.214.212';
+    static weburl: String = '142.93.214.212';
     static port: String = '8082';
 
-    serviceurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/';
+    serviceurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/kesarapi/';
     uploadurl: String = 'http://' + Globals.weburl + ':' + Globals.port + '/images/';
 
     filepath: String = 'www\\uploads\\';
