@@ -60,8 +60,8 @@ export class SignUpComponent implements OnInit {
             EmailID:this.userMasterForm.EmailID,
             Password:this.userMasterForm.Password,
             UserId:0,
-            UserTypeID:5,
-            UserTypecode:"client",
+            UserTypeID:2,
+            UserTypecode:"clnt",
             isActive:true,
             isdonor:false,
             isadmin:false

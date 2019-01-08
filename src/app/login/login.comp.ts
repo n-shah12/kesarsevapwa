@@ -15,34 +15,29 @@ export class LoginComp implements OnInit {
     };
 
     constructor(private router: Router, private http: HttpClient,
-        private loginService_: LoginService, private global: GlobalService) { }
+        private loginService_: LoginService, private global:GlobalService) { }
 
     ngOnInit(): void { }
-    onSignup() {
-        this.router.navigate(['/signup']);
-    }
-
-    onHome() {
-        this.router.navigate(['/']);
-    }
 
     onLoinClick() {
         this.loginService_.Login({ 'username': this.loginForm.username, 'password': this.loginForm.password }).subscribe((data) => {
             debugger;
             var response = JSON.stringify(data);
             var objuser = JSON.parse(response).data;
-            if (objuser.length > 0) {
-                const usr = objuser[0];
-                if (usr.UserId !== null && usr.UserId !== undefined) {
+            if(objuser.length > 0)
+            {
+            const usr = objuser[0];
+                if(usr.UserId !== null && usr.UserId !== undefined){
 
                     this.global.setuser(JSON.stringify(objuser[0]));
                     this.router.navigate(['/']);
-                } else {
+                }else{
                     alert('Invalid username or password.');
                 }
             }
-            else {
-                alert('Invalid username or password.');
+            else
+            {
+               alert('Invalid username or password.');
             }
 
         }, (err) => {
@@ -50,5 +45,7 @@ export class LoginComp implements OnInit {
         });
 
     }
-
+    onSignup(){
+        this.router.navigate(['/signup']);
+    }
 }
