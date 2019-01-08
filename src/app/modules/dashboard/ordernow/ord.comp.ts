@@ -7,7 +7,8 @@ import { DialogData } from '../../volunteer/vdashboard/index.comp';
     styleUrls: ['./ord.comp.scss']
 })
 export class OrderNwDialogComponent implements OnInit {
-    constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+    data:any = {};
+    constructor(@Inject(MAT_DIALOG_DATA) public data1: DialogData) { }
 
     ngOnInit(): void { }
 }

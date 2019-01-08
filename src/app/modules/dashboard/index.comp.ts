@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('search') public searchElement: ElementRef;
   loading  = false;
   markers = [];
+  options = {};
   constructor(public dialog: MatDialog, public global: GlobalService, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private skservice: SevaKendraService) { }
 
