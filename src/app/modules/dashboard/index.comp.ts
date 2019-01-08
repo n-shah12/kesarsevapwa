@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   loading  = false;
   markers = [];
   options = {};
+  zoom = 12;
   constructor(public dialog: MatDialog, public global: GlobalService, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private skservice: SevaKendraService) { }
 
@@ -32,6 +33,8 @@ export class DashboardComponent implements OnInit {
     console.log(address.geometry.viewport.getNorthEast());
     this.lng = address.geometry.location.lng();
     this.lat = address.geometry.location.lat();
+    this.zoom = 10;
+    this.getNearbyKendra();
 
   }
 
@@ -70,6 +73,7 @@ export class DashboardComponent implements OnInit {
   }
   //function that gets the location and returns it
   getLocation() {
+    this.zoom = 10;
     this.loading = true;
     let that = this;
     if (navigator.geolocation) {
@@ -93,11 +97,15 @@ export class DashboardComponent implements OnInit {
     this.lng = Number(position.coords.longitude);
     console.log(location)
     this.getNearbyKendra();
-
+    this.zoo
   }
 
 
   getNearbyKendra() {
+    // if(this.markers.length > 0){
+    //   this.markers.splice(0,1);
+    // }
+   this.markers = [];
     
     this.skservice.getSevaKendra({
       'lat': this.lat,

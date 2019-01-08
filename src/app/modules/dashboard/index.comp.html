@@ -8,8 +8,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<agm-map [latitude]="lat" [zoom]="12" [longitude]="lng" >
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" >
+  <agm-marker [latitude]="lat" [label]="'Me'" [longitude]="lng"></agm-marker>
   <agm-marker 
   *ngFor="let m of markers; let i = index"
   (markerClick)="clickedMarker(m, i)"

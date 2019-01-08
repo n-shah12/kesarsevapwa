@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiurl:"http://localhost:8082/kesarapi",
-  mapkey:"AIzaSyCxauwNsgQ21Dj6SprkqF91cO533ij3yX0"
+  mapkey:"AIzaSyA82-J9f4u3b0uYLEHHQ_MwoQXUCGGGqys"
 };
 
 /*
