@@ -45,5 +45,7 @@ export class LoginComp implements OnInit {
         });
 
     }
-
+    onSignup(){
+        this.router.navigate(['/signup']);
+    }
 }

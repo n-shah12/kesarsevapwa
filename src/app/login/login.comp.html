@@ -17,7 +17,7 @@
                             email
                         </i>
                     </span>
-                    <input matInput class="inputmob" [ngModelOptions]="{standalone: true}" [(ngModel)]="loginForm.username" placeholder="Emailid" value="">
+                    <input matInput class="inputmob" [ngModelOptions]="{standalone: true}" [(ngModel)]="loginForm.username" placeholder="Emailid/Mobile No." value="">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
@@ -32,7 +32,7 @@
             <!-- Form -->
             <br />
             <button class="loginbutton" style="margin-bottom: 20px;" (click)="onLoinClick()" mat-raised-button>LOG IN</button>
-            <button class="loginbutton" (click)="onLoinClick()" mat-raised-button>SIGN UP</button>
+            <button class="loginbutton" (click)="onSignup()" mat-raised-button>SIGN UP</button>
 
         </mat-card-content>
 
