@@ -97,7 +97,7 @@ export class DashboardComponent implements OnInit {
     this.lng = Number(position.coords.longitude);
     console.log(location)
     this.getNearbyKendra();
-    this.zoo
+    this.zoom = 10;
   }
 
 
