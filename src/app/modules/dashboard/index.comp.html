@@ -10,10 +10,19 @@
 
 <agm-map [latitude]="lat" [zoom]="12" [longitude]="lng" >
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-marker 
+  *ngFor="let m of markers; let i = index"
+  (markerClick)="clickedMarker(m, i)"
+  [latitude]="m.lat"
+  [longitude]="m.lng"
+  [iconUrl]="'./assets/img/sk.png'"
+  [label]="m.label"></agm-marker>
 </agm-map>
 <div class="floatingtextBox">
   <div class="inputWrapper">
-    <input type="text" placeholder="Choose Location">
+    <input ngx-google-places-autocomplete type="text" [options]='options' autocorrect="off" autocapitalize="off" 
+    spellcheck="off" placeholder="Choose Location" #placesRef="ngx-places" 
+    (onAddressChange)="handleAddressChange($event)"/>
     <i class="material-icons">search</i>
   </div>
 </div>
@@ -30,10 +39,9 @@
         </div>
       </td>
       <td class="text-center height" style="
-      vertical-align: top;
-  ">
+      vertical-align: top;">
         <div class="center">
-          <a><img src="assets/img/order-now.png"></a>
+          <a (click)="openOrderDialog()"><img src="assets/img/order-now.png"></a>
           <div class="text">
             <span class="disp-block">Order Now</span>
             <span class="disp-block" style="font-size:11px">Rs. 10 per plate</span>

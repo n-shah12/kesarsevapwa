@@ -13,7 +13,6 @@ import { ESharedModule } from './shared/sharedmodule';
 import { SignUpComponent } from './signup/signup.comp';
 import { LoginService } from '../app/login/login.service';
 import { SignupService } from '../app/signup/signup.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +26,7 @@ import { SignupService } from '../app/signup/signup.service';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ESharedModule
+
   ],
   providers: [LoginService,SignupService],
   bootstrap: [AppComponent]

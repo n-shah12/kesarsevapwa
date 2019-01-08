@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { ESharedModule } from 'src/app/shared/sharedmodule';
 import { AgmCoreModule } from '@agm/core';
 import { DonateDialogComponent } from './donate/donate.comp';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { environment } from 'src/environments/environment.prod';
+import { OrderNwDialogComponent } from './ordernow/ord.comp';
 export const routes: Routes = [
 
   {
@@ -20,12 +23,14 @@ export const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ESharedModule,
+    GooglePlaceModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDyMQKcezGs03uuOdzjO7nrp6XDEgCygCI'
+      apiKey:  environment.mapkey,
+      libraries: ["places"]
     })
   ],
-  declarations: [DashboardComponent, DonateDialogComponent],
-  entryComponents: [DonateDialogComponent]
+  declarations: [DashboardComponent, DonateDialogComponent, OrderNwDialogComponent],
+  entryComponents: [DonateDialogComponent,OrderNwDialogComponent]
 
 })
 export class DashboardModule { }

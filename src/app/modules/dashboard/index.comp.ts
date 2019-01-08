@@ -1,19 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+/// <reference types="@types/googlemaps" />
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { DonateDialogComponent } from './donate/donate.comp';
 import { MatDialog } from '@angular/material';
 import { GlobalService } from 'src/app/common/global';
 
+import { MapsAPILoader } from '@agm/core';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete/ngx-google-places-autocomplete.directive';
+import { OrderNwDialogComponent } from './ordernow/ord.comp';
+import { SevaKendraService } from 'src/app/services/dashboard-service';
+
 @Component({
   templateUrl: 'index.comp.html',
-  styleUrls: ['./index.comp.scss']
+  styleUrls: ['./index.comp.scss'],
+  providers: [SevaKendraService]
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild('places') places: GooglePlaceDirective;
+  @ViewChild('search') public searchElement: ElementRef;
+  loading  = false;
+  markers = [];
+  constructor(public dialog: MatDialog, public global: GlobalService, private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone, private skservice: SevaKendraService) { }
 
-  constructor(public dialog: MatDialog, public global: GlobalService) { }
+  public handleAddressChange(address: any) {
+    // Do some stuff
+    console.log(address.geometry.location.lng());
+    console.log(address.geometry.location.lat());
+    console.log(address.geometry.location.toJSON());
+    console.log(address.geometry.viewport.getNorthEast());
+    this.lng = address.geometry.location.lng();
+    this.lat = address.geometry.location.lat();
+
+  }
 
   openDialog() {
     this.dialog.open(DonateDialogComponent, {
+      data: {
+        animal: ''
+      },
+      minWidth: '250PX'
+    });
+  }
+
+  openOrderDialog() {
+    this.dialog.open(OrderNwDialogComponent, {
       data: {
         animal: ''
       },
@@ -27,10 +58,18 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLocation();
+
+    //create search FormControl
+
+
   }
 
+  clickedMarker(m,i){
+    this.openOrderDialog();
+  }
   //function that gets the location and returns it
   getLocation() {
+    this.loading = true;
     let that = this;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -52,6 +91,39 @@ export class DashboardComponent implements OnInit {
     this.lat = Number(position.coords.latitude);
     this.lng = Number(position.coords.longitude);
     console.log(location)
+    this.getNearbyKendra();
+
+  }
+
+
+  getNearbyKendra() {
+    
+    this.skservice.getSevaKendra({
+      'lat': this.lat,
+      'lng': this.lng,
+      'dist': 6000
+    }).subscribe((data) => {
+
+      const marks = data.data;
+      if(marks.length > 0){
+
+        for (let i = 0; i < marks.length; i++) {
+          const element = marks[i];
+        
+          this.markers.push({
+            lat: Number(element.Loc.x),
+          lng: Number(element.Loc.y),
+          label: element.addr
+          });
+
+        }
+
+      }
+
+      this.loading = false;
+    }, (err) => {
+
+    });
   }
 
 
