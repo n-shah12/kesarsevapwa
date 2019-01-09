@@ -3,7 +3,7 @@
         <button mat-button (click)="global.drawer.toggle()" class="toolbar-menu-button">
             <i class="material-icons">dehaze</i>
         </button>
-        <span>{{user}}</span>
+        <span>{{user.Name}}</span>
         <span class="example-spacer"></span>
         <mat-slide-toggle  [(ngModel)]="issendlocation" (change)="sendlocationdetail()"
         class="example-margin"></mat-slide-toggle>
