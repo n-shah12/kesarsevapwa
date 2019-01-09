@@ -10,6 +10,7 @@ import { GooglePlaceDirective } from 'ngx-google-places-autocomplete/ngx-google-
 import { OrderNwDialogComponent } from './ordernow/ord.comp';
 import { SevaKendraService } from 'src/app/services/dashboard-service';
 
+
 @Component({
   templateUrl: 'index.comp.html',
   styleUrls: ['./index.comp.scss'],
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
   loading  = false;
   markers = [];
   options = {};
+  skuser:any;
   zoom = 12;
   constructor(public dialog: MatDialog, public global: GlobalService, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private skservice: SevaKendraService) { }
@@ -49,9 +51,7 @@ export class DashboardComponent implements OnInit {
 
   openOrderDialog() {
     this.dialog.open(OrderNwDialogComponent, {
-      data: {
-        animal: ''
-      },
+      data: this.markers,
       minWidth: '250PX'
     });
   }
@@ -112,18 +112,22 @@ export class DashboardComponent implements OnInit {
       'lng': this.lng,
       'dist': 6000
     }).subscribe((data) => {
-
+      debugger;
       const marks = data.data;
       if(marks.length > 0){
-
+       
         for (let i = 0; i < marks.length; i++) {
+          
           const element = marks[i];
         
           this.markers.push({
             lat: Number(element.Loc.x),
           lng: Number(element.Loc.y),
-          label: element.addr
-          });
+          label: element.addr,
+          LocationMasterId:element.LocationMasterId,
+          UserId:element.UserId  
+        });
+          
 
         }
 

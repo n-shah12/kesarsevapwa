@@ -4,24 +4,24 @@
 <div class="dialog-content">
     <div class="example-container">
         <mat-form-field>
-            <input matInput placeholder="Add number of plate" type="number" [(ngModel)]="data.plates">
+            <input matInput required placeholder="Add number of plate" type="number" [(ngModel)]="data.Quantity  ">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Name" [(ngModel)]="data.name">
+            <input matInput required placeholder="Name" [(ngModel)]="data.Name">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Address" [(ngModel)]="data.address">
+            <input matInput required placeholder="Address" [(ngModel)]="data.Address">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Contact Number" [(ngModel)]="data.mob">
+            <input matInput required placeholder="Contact Number" [(ngModel)]="data.Contact">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="E-mail Id" [(ngModel)]="data.email">
+            <input matInput required placeholder="E-mail Id" [(ngModel)]="data.EmailId">
         </mat-form-field>
         
     </div>
 </div>
 
 <div mat-dialog-actions class="disp-block text-center">
-    <button mat-button [mat-dialog-close]="data.animal" class="btn btn-theme" cdkFocusInitial>Order Now</button>
+    <button mat-button [mat-dialog-close]="data.animal" (click)="Order()" class="btn btn-theme" cdkFocusInitial>Order Now</button>
 </div>
