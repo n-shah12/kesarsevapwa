@@ -149,16 +149,5 @@ export class VDashComponent implements OnInit {
     }
   }
   //request for location
-  // getAddress(lat1, lng1){
-  //   var latlng = new google.maps.LatLng(Number(lat1), Number(lng1));
-  //   var geocoder = new google.maps.Geocoder();
-  //   let that = this;
-  //   geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-  //     if (status == google.maps.GeocoderStatus.OK) {
-  //         if (results[1]) {
-  //             // that.address = results[1].formatted_address;
-  //         }
-  //     }
-  // });
-  // }
+
 }
