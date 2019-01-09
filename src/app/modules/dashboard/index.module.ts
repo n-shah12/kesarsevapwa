@@ -9,6 +9,7 @@ import { DonateDialogComponent } from './donate/donate.comp';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { environment } from 'src/environments/environment.prod';
 import { OrderNwDialogComponent } from './ordernow/ord.comp';
+import { MatListModule } from '@angular/material';
 export const routes: Routes = [
 
   {
@@ -27,7 +28,8 @@ export const routes: Routes = [
     AgmCoreModule.forRoot({
       apiKey:  environment.mapkey,
       libraries: ["places"]
-    })
+    }),
+    MatListModule
   ],
   declarations: [DashboardComponent, DonateDialogComponent, OrderNwDialogComponent],
   entryComponents: [DonateDialogComponent,OrderNwDialogComponent]

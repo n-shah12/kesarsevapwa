@@ -1,27 +1,46 @@
 <div class="dialog-title">
-    <h1 mat-dialog-title>Donate Khichadi</h1>
+    <h1 mat-dialog-title *ngIf="!skuserdetail">Select Location</h1>
+    <h1 mat-dialog-title *ngIf="skuserdetail">Order Khichadi</h1>
+    <button (click)="close()" class="closebtn"><i class="material-icons">close</i></button>
 </div>
 <div class="dialog-content">
-    <div class="example-container">
-        <mat-form-field>
-            <input matInput required placeholder="Add number of plate" type="number" [(ngModel)]="data.Quantity  ">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput required placeholder="Name" [(ngModel)]="data.Name">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput required placeholder="Address" [(ngModel)]="data.Address">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput required placeholder="Contact Number" [(ngModel)]="data.Contact">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput required placeholder="E-mail Id" [(ngModel)]="data.EmailId">
-        </mat-form-field>
-        
+
+    <div *ngIf="mode === 'list'" class="disp-block">
+        <div class="example-container disp-block">
+            <mat-list role="list">
+                <mat-list-item *ngFor="let item of locations" role="listitem" (click)="itemselected(item)">
+                    <div mat-card-avatar class="example-header-image"></div>{{item.addr}}
+                </mat-list-item>
+
+            </mat-list>
+        </div>
     </div>
+    <div *ngIf="mode === ''">
+        <div class="example-container disp-block">
+            <mat-form-field>
+                <input matInput required placeholder="Name" [(ngModel)]="data.Name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput required placeholder="Add number of plate" class="text-center" type="number" [(ngModel)]="data.Quantity">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput required placeholder="Address" [(ngModel)]="data.Address">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput required placeholder="Contact Number" [(ngModel)]="data.MobileNo">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput required placeholder="E-mail Id" [(ngModel)]="data.EmailId">
+            </mat-form-field>
+        </div>
+    </div>
+
+
+
 </div>
 
 <div mat-dialog-actions class="disp-block text-center">
-    <button mat-button [mat-dialog-close]="data.animal" (click)="Order()" class="btn btn-theme" cdkFocusInitial>Order Now</button>
+    <button mat-button [mat-dialog-close]="data.animal" [disabled]="!skuserdetail" (click)="Order()" class="btn btn-theme"
+        cdkFocusInitial>Order
+        Now</button>
 </div>

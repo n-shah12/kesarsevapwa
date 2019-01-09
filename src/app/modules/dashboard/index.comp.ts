@@ -10,7 +10,8 @@ import { GooglePlaceDirective } from 'ngx-google-places-autocomplete/ngx-google-
 import { OrderNwDialogComponent } from './ordernow/ord.comp';
 import { SevaKendraService } from 'src/app/services/dashboard-service';
 
-
+declare var com: any;
+declare var google:any;
 @Component({
   templateUrl: 'index.comp.html',
   styleUrls: ['./index.comp.scss'],
@@ -19,13 +20,17 @@ import { SevaKendraService } from 'src/app/services/dashboard-service';
 export class DashboardComponent implements OnInit {
   @ViewChild('places') places: GooglePlaceDirective;
   @ViewChild('search') public searchElement: ElementRef;
-  loading  = false;
+  loading = false;
   markers = [];
   options = {};
-  skuser:any;
+  lists = [];
+  skuser: any;
   zoom = 12;
-  constructor(public dialog: MatDialog, public global: GlobalService, private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, private skservice: SevaKendraService) { }
+  address = '';
+  selectedMarker: any = {};
+  constructor(public dialog: MatDialog, public global: GlobalService, 
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone, private skservice: SevaKendraService,private router :Router ) { }
 
   public handleAddressChange(address: any) {
     // Do some stuff
@@ -35,7 +40,8 @@ export class DashboardComponent implements OnInit {
     console.log(address.geometry.viewport.getNorthEast());
     this.lng = address.geometry.location.lng();
     this.lat = address.geometry.location.lat();
-    this.zoom = 10;
+    this.zoom = 13;
+
     this.getNearbyKendra();
 
   }
@@ -49,11 +55,21 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  openOrderDialog() {
+  openOrderDialog(d) {
+    let user= this.global.getuser();
+    if( !(user && user.UserId)){
+        this.router.navigate(['/login']);
+    }else{
     this.dialog.open(OrderNwDialogComponent, {
-      data: this.markers,
+      data: {
+        animal: '',
+        mode: d,
+        locations: this.lists,
+        selected: this.selectedMarker
+      },
       minWidth: '250PX'
     });
+  }
   }
 
   title: string = 'My first AGM project';
@@ -61,28 +77,41 @@ export class DashboardComponent implements OnInit {
   lng: number = 72.572221;
 
   ngOnInit(): void {
-    this.getLocation();
+    let that = this;
+    setTimeout(() => {
+      com.load('.example-sidenav-content', 'Waiting for your location');
+      that.getLocation();
+    }, 100);
 
     //create search FormControl
 
 
   }
+  ngAfterViewInit(): void {
 
-  clickedMarker(m,i){
-    this.openOrderDialog();
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+
+  }
+  clickedMarker(m, i) {
+
+    this.openOrderDialog('');
   }
   //function that gets the location and returns it
   getLocation() {
-    this.zoom = 10;
+    this.zoom = 13;
     this.loading = true;
     let that = this;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         that.showPosition(position);
+        com.hload('.example-sidenav-content');
       }, (err) => {
+        com.hload('.example-sidenav-content');
         console.log(this.locationError(err));
       });
     } else {
+      com.hload('.example-sidenav-content');
       console.log("Geo Location not supported by browser");
     }
   }
@@ -97,7 +126,8 @@ export class DashboardComponent implements OnInit {
     this.lng = Number(position.coords.longitude);
     console.log(location)
     this.getNearbyKendra();
-    this.zoom = 10;
+    this.zoom = 13;
+    this.getAddress(this.lat, this.lng);
   }
 
 
@@ -105,37 +135,36 @@ export class DashboardComponent implements OnInit {
     // if(this.markers.length > 0){
     //   this.markers.splice(0,1);
     // }
-   this.markers = [];
-    
+    this.markers = [];
+    this.lists = [];
     this.skservice.getSevaKendra({
       'lat': this.lat,
       'lng': this.lng,
       'dist': 6000
     }).subscribe((data) => {
-      debugger;
       const marks = data.data;
-      if(marks.length > 0){
-       
+      if (marks.length > 0) {
+        this.lists = marks;
         for (let i = 0; i < marks.length; i++) {
-          
+
           const element = marks[i];
-        
+
           this.markers.push({
             lat: Number(element.Loc.x),
-          lng: Number(element.Loc.y),
-          label: element.addr,
-          LocationMasterId:element.LocationMasterId,
-          UserId:element.UserId  
-        });
-          
+            lng: Number(element.Loc.y),
+            label: element.addr,
+            LocationMasterId: element.LocationMasterId,
+            UserId: element.UserId
+          });
+
 
         }
 
       }
-
+      com.hload('.example-sidenav-content');
       this.loading = false;
     }, (err) => {
-
+      com.hload('.example-sidenav-content');
     });
   }
 
@@ -158,6 +187,23 @@ export class DashboardComponent implements OnInit {
   }
   //request for location
 
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    com.hload('.example-sidenav-content');
+  }
 
+  getAddress(lat1, lng1){
+    var latlng = new google.maps.LatLng(Number(lat1), Number(lng1));
+    var geocoder = new google.maps.Geocoder();
+    let that = this;
+    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+              that.address = results[1].formatted_address;
+          }
+      }
+  });
+  }
 
 }

@@ -174,10 +174,13 @@ small{
     /* margin: 0 0 20px; */
     display: block;
     margin: 0px;
+    position: relative;
     padding: 6px;
 }
 .dialog-content{
-    padding: 5px 10px 5px 10px;
+    padding: 15px 10px 5px 10px;
+    max-height: 300px;
+    overflow: auto;
 }
 
 .mat-dialog-actions{
@@ -207,4 +210,27 @@ a.mat-list-item.active {
 
 .example-sidenav-content{
     height: 100%;
+}
+
+.closebtn{
+    position: absolute;
+    top: 7px;
+    right: 2px;
+    background: #ffffff;
+    border: 0px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    z-index: 111111;
+    text-align: center;
+    padding: 0px;
+    padding-left: 2px;
+    display: none;
+}
+
+.mat-snack-bar-container{
+    color: rgba(4, 4, 4, 0.7);
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    background-color: #fece00;
+    background-image: linear-gradient(#f9e401, #fece00) !important;
 }

@@ -14,6 +14,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MatSnackBarModule } from '@angular/material';
 @NgModule({
     declarations: [],
     imports: [
@@ -29,7 +30,8 @@ import { HttpModule } from '@angular/http';
         MatSlideToggleModule,
         MatDialogModule,
         HttpModule,
-        FormsModule
+        FormsModule,
+        MatSnackBarModule
         
     ],
     exports: [MatToolbarModule,
@@ -44,7 +46,9 @@ import { HttpModule } from '@angular/http';
         MatSlideToggleModule,
         FormsModule,
         HttpModule,
-        MatDialogModule],
+        MatDialogModule,
+        MatSnackBarModule
+],
     providers: [],
 })
 export class ESharedModule { }

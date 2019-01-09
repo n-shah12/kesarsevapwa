@@ -28,9 +28,13 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/waitMe.min.css"
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js"]
+            "scripts": ["node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/waitMe.min.js",
+              "src/assets/js/common.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -7,7 +7,7 @@
 
   </mat-toolbar-row>
 </mat-toolbar>
-
+<div id="load">
 <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" >
   <agm-marker [latitude]="lat" [label]="'Me'" [longitude]="lng"></agm-marker>
   <agm-marker 
@@ -20,11 +20,14 @@
 </agm-map>
 <div class="floatingtextBox">
   <div class="inputWrapper">
-    <input ngx-google-places-autocomplete type="text" [options]='options' autocorrect="off" autocapitalize="off" 
+    <input ngx-google-places-autocomplete type="text" [options]='options' autocorrect="off" 
+    autocapitalize="off"  [(ngModel)]="address"
     spellcheck="off" placeholder="Choose Location" #placesRef="ngx-places" 
     (onAddressChange)="handleAddressChange($event)"/>
     <i class="material-icons">search</i>
   </div>
+</div>
+
 </div>
 
 <div class="bottompanel">
@@ -32,16 +35,17 @@
     <tr>
       <td class="text-center height">
         <div class="lr">
-          <a (click)="openDialog()"><img src="assets/img/donate-now.png"></a>
+          <a (click)="openDialog('list')"><img src="assets/img/donate-now.png"></a>
           <div class="text">
             <span>Donate Now</span>
           </div>
+          
         </div>
       </td>
       <td class="text-center height" style="
       vertical-align: top;">
         <div class="center">
-          <a (click)="openOrderDialog()"><img src="assets/img/order-now.png"></a>
+          <a (click)="openOrderDialog('list')"><img src="assets/img/order-now.png"></a>
           <div class="text">
             <span class="disp-block">Order Now</span>
             <span class="disp-block" style="font-size:11px">Rs. 10 per plate</span>
