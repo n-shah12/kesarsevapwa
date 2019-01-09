@@ -22,7 +22,7 @@ export class OrderNwDialogComponent implements OnInit {
 
         this.mode = data1.mode;
         if (data1.mode === '') {
-            this.skuserdetail = data1.selected;
+            this.skuserdetail = data1.result;
         }
         this.locations = data1.locations
         // for (let index = 0; index < 100; index++) {
@@ -64,7 +64,7 @@ export class OrderNwDialogComponent implements OnInit {
                 "SKUserId": this.skuserdetail.UserId,
                 "Quantity": this.data.Quantity,
                 "Address": this.data.Address,
-                "Contact": this.data.Contact,
+                "Contact": this.data.MobileNo,
                 "EmailId": this.data.EmailId,
                 "Rate": this.data.Rate,
                 "DeliveryDate": new Date,

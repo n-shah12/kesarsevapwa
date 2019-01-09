@@ -10,7 +10,9 @@ export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
   locations?:any,
   mode?:any,
-  selected:any
+  selected:any,
+  result:any
+  
 }
 declare var com: any;
 @Component({

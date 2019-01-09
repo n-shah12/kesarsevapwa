@@ -65,7 +65,8 @@ export class DashboardComponent implements OnInit {
         animal: '',
         mode: d,
         locations: this.lists,
-        selected: this.selectedMarker
+        selected: this.selectedMarker,
+        resultval:this.markers
       },
       minWidth: '250PX'
     });
