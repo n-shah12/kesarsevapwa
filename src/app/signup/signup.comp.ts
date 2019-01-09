@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { SignupService } from './signup.service';
 import { Globals } from "../const/globals";
 import { validateConfig } from '@angular/router/src/config';
+import { MatSnackBar } from '@angular/material';
 
+declare var com:any;
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.comp.html',
@@ -26,7 +28,7 @@ export class SignUpComponent implements OnInit {
             isActive:true
     };
     constructor(private router: Router, private http: HttpClient,
-        private signupService_: SignupService) {
+        private signupService_: SignupService, private msg: MatSnackBar) {
      }
 
     ngOnInit(): void { }
@@ -51,9 +53,10 @@ export class SignUpComponent implements OnInit {
 
     }
 
-    onLoinClick(){
+    onSignup(){
+        com.load('.login', 'Signing Up. Please wait....');
         this.userMasterForm.UserTypeID="5";
-        debugger;
+        let that = this;
         var d = {
             Name:this.userMasterForm.Name,
             MobileNo:this.userMasterForm.MobileNo,
@@ -68,16 +71,35 @@ export class SignUpComponent implements OnInit {
           }
         if(this.validate()){
             this.signupService_.RegisterUser(d).subscribe((data) => {
-
-                  this.router.navigate(['/login']);
-                
+               
+                setTimeout(() => {
+                   
+                    that.router.navigate(['/login']);
+                    that.msg.open('Registered successfully', 'Ok', {
+                        duration:2000
+                    })
+                    setTimeout(() => {
+                        com.hload('.login');
+                    
+                    },1000);
+                    
+                }, 2000);
+                 
                
     
             }, (err) => {
-    
+                com.hload('.login');
             });
          
         }
         
+    }
+
+    onLogin() {
+        this.router.navigate(['/login']);
+    }
+
+    onHome() {
+        this.router.navigate(['/']);
     }
 }

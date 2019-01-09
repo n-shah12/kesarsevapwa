@@ -23,7 +23,6 @@ export class GlobalService {
         return JSON.parse((localStorage.getItem('user') || '{}'));
     }
     public isLogedin(){
-        debugger;
         if(!(this.getuser() && this.getuser().UserId)){
            return false;
         }

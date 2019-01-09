@@ -19,7 +19,7 @@ export class IndexLayoutComponent implements OnInit {
   { 'name': '', 'icon': 'bar_chart', 'path': '/leaderboard' }];
   activeLink = this.links[0];
   background = '';
-
+  islogin = false;
   toggleBackground() {
     this.background = this.background ? '' : 'primary';
   }
@@ -52,7 +52,7 @@ export class IndexLayoutComponent implements OnInit {
     });
   }
   ngOnInit() {
-
+    
 
     localStorage.setItem('', '');
 

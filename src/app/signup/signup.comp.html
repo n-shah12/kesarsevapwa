@@ -46,7 +46,7 @@
                             phone
                         </i>
                     </span>
-                    <input matInput class="inputmob" placeholder="Mobile No" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.MobileNo" value="">
+                    <input matInput type="tel" class="inputmob" placeholder="Mobile No" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.MobileNo" value="">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
@@ -60,7 +60,17 @@
             </form>
             <!-- Form -->
             <br />
-            <button class="loginbutton" (click)="onLoinClick()" mat-raised-button>SIGN UP</button>
+            <!-- <button class="loginbutton" style="margin-bottom: 20px;" (click)="onLoinClick()" mat-raised-button>LOG IN</button>
+             -->
+             <button class="loginbutton" style="margin-bottom: 20px;"  (click)="onSignup()" mat-raised-button>Register</button>
+            <div class=" disp-block example-button-row text center">
+                <button class="loginbutton" style="margin-bottom: 10px;"  style="width: 120px;"  
+                (click)="onLogin()" mat-raised-button>Sign In</button>
+                
+                <a  (click)="onHome()" mat-button >Skip Login</a>
+              </div>
+
+           
         </mat-card-content>
 
     </mat-card>
