@@ -234,3 +234,16 @@ a.mat-list-item.active {
     background-color: #fece00;
     background-image: linear-gradient(#f9e401, #fece00) !important;
 }
+
+.profile{
+    height: 100px;
+    width: 100px;
+    border: 2px solid #fece00;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #ffffff;
+    font-weight: 300;
+    background-image: url('./assets/img/user.png');
+    background-size: cover;
+    overflow: hidden;
+}

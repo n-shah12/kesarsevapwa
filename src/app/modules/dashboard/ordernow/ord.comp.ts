@@ -22,7 +22,8 @@ export class OrderNwDialogComponent implements OnInit {
 
         this.mode = data1.mode;
         if (data1.mode === '') {
-            this.skuserdetail = data1.result;
+
+            this.skuserdetail = data1.selected;
         }
         this.locations = data1.locations
         // for (let index = 0; index < 100; index++) {
@@ -55,6 +56,7 @@ export class OrderNwDialogComponent implements OnInit {
 
         if(this.validate()){
             var loc = "(" + this.skuserdetail.lat + "," + this.skuserdetail.lng + ")";
+            console.log(this.skuserdetail);
             this.data.Rate = 10.00;
             var insertupdate = {
                 "OrderId": "0",

@@ -36,7 +36,9 @@ export class LoginComp implements OnInit {
                 if (usr.UserId !== null && usr.UserId !== undefined) {
 
                     this.global.setuser(JSON.stringify(objuser[0]));
-                    this.router.navigate(['/']);
+                    this.global.isRider()
+
+                   
                 } else {
                     alert('Invalid username or password.');
                 }

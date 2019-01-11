@@ -1,15 +1,19 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="hover">
-   
+      <div class="disp-block text-center" *ngIf="global.getuser().Name" style="margin-top:10px">
+          <div class="profile"></div>
+          <span class="name disp-block " style="text-transform:capitalize">{{global.getuser().Name}}</span>
+      </div>
       <mat-nav-list>
+        
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/home' ]" routerLinkActive="active">Home</a>
           
 
-          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/dp' ]" routerLinkActive="active">Donor Profile</a>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/dp' ]" routerLinkActive="active">Profile</a>
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/donorlist' ]" routerLinkActive="active">Donor List</a>
           
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/leaderboard' ]" routerLinkActive="active">Leader Boards</a>
-          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/volunteer' ]" routerLinkActive="active">Volunteer</a>
+          <!-- <a mat-list-item (click)="drawer.toggle()" *ngIf="!global.isvolunteershow" [routerLink]="[ '/volunteer' ]" routerLinkActive="active">Volunteer</a> -->
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtmv' ]" routerLinkActive="active">Join The Movement</a>
           
           <a mat-list-item (click)="drawer.toggle()" *ngIf="!global.isLogedin()" [routerLink]="[ '/login' ]" routerLinkActive="active">Login</a>
@@ -29,8 +33,8 @@
 
 
   <nav mat-tab-nav-bar mat-stretch-tabs class="homenav" [backgroundColor]="background">
-    <a mat-tab-link [routerLink]="[link.path]" headerPosition="below" 
+    <a mat-tab-link  headerPosition="below" 
     [ngStyle]="{'height': '50px'}" *ngFor="let link of links"
-    routerLinkActive="active" (click)="activeLink = link" [active]="activeLink == link"> <i class="material-icons">{{link.icon}}</i> </a>
+    routerLinkActive="active" (click)="callUrl(link);" [active]="activeLink == link"> <i class="material-icons">{{link.icon}}</i> </a>
   </nav>
 </mat-drawer-container>

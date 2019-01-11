@@ -44,6 +44,7 @@ export class DashboardComponent implements OnInit {
 
     this.getNearbyKendra();
 
+
   }
 
   openDialog() {
@@ -78,11 +79,16 @@ export class DashboardComponent implements OnInit {
   lng: number = 72.572221;
 
   ngOnInit(): void {
+
+    if(this.global.isRider()){
+
+    }else{
     let that = this;
     setTimeout(() => {
-      com.load('.example-sidenav-content', 'Waiting for your location');
+      com.load('.bottompanel', 'Waiting for your location');
       that.getLocation();
     }, 100);
+  }
 
     //create search FormControl
 
@@ -95,7 +101,7 @@ export class DashboardComponent implements OnInit {
 
   }
   clickedMarker(m, i) {
-
+    this.selectedMarker=m;
     this.openOrderDialog('');
   }
   //function that gets the location and returns it
@@ -106,13 +112,13 @@ export class DashboardComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         that.showPosition(position);
-        com.hload('.example-sidenav-content');
+        com.hload('.bottompanel');
       }, (err) => {
-        com.hload('.example-sidenav-content');
+        com.hload('.bottompanel');
         console.log(this.locationError(err));
       });
     } else {
-      com.hload('.example-sidenav-content');
+      com.hload('.bottompanel');
       console.log("Geo Location not supported by browser");
     }
   }
@@ -162,10 +168,10 @@ export class DashboardComponent implements OnInit {
         }
 
       }
-      com.hload('.example-sidenav-content');
+      com.hload('.bottompanel');
       this.loading = false;
     }, (err) => {
-      com.hload('.example-sidenav-content');
+      com.hload('.bottompanel');
     });
   }
 
@@ -191,7 +197,7 @@ export class DashboardComponent implements OnInit {
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    com.hload('.example-sidenav-content');
+    com.hload('.bottompanel');
   }
 
   getAddress(lat1, lng1){
@@ -202,6 +208,7 @@ export class DashboardComponent implements OnInit {
       if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
               that.address = results[1].formatted_address;
+              
           }
       }
   });

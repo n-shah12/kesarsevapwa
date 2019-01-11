@@ -13,7 +13,7 @@ import { GlobalService } from '../common/global';
 export class IndexLayoutComponent implements OnInit {
   @ViewChild('drawer')
   drawer: MatDrawer;
-  links = [{ 'name': '', 'icon': 'home', 'path': '/' },
+  links = [{ 'name': 'home', 'icon': 'home', 'path': '/' },
   { 'name': '', 'icon': 'person', 'path': '/dp' },
   { 'name': '', 'icon': 'local_play', 'path': '/jtmv' },
   { 'name': '', 'icon': 'bar_chart', 'path': '/leaderboard' }];
@@ -52,7 +52,7 @@ export class IndexLayoutComponent implements OnInit {
     });
   }
   ngOnInit() {
-    
+
 
     localStorage.setItem('', '');
 
@@ -62,6 +62,15 @@ export class IndexLayoutComponent implements OnInit {
     this.getFavmenu();
    this.global.drawer = this.drawer;
 
+  }
+
+  callUrl(lnk){
+    this.activeLink = lnk; 
+      if(lnk.name === 'home'){
+        this.global.isRider();
+      }else{
+        this.router.navigate([lnk.path]);
+      }
   }
 
   
