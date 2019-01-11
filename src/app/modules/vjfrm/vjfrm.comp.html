@@ -13,25 +13,32 @@
     <form class="example-form">
         <div class="example-container form">
             <mat-form-field>
-                <input matInput placeholder="Name">
+                <input matInput required placeholder="Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="vjfrm.Name" >
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Contact No">
+                <input matInput required placeholder="Contact No" [ngModelOptions]="{standalone: true}" [(ngModel)]="vjfrm.MobileNo">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="E-mail Id">
+                <input matInput required placeholder="E-mail Id" [ngModelOptions]="{standalone: true}" [(ngModel)]="vjfrm.EmailID">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Photo id proof number">
+                <input matInput required placeholder="Password" type="password" [ngModelOptions]="{standalone: true}" [(ngModel)]="vjfrm.Password">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Pan Card Number">
+                <input matInput required placeholder="Address" [ngModelOptions]="{standalone: true}" [(ngModel)]="vjfrm.Address">
             </mat-form-field>
+            <mat-form-field>
+                <input matInput required placeholder="Photo id proof number" [ngModelOptions]="{standalone: true}" [(ngModel)]="vjfrm.Proofid">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput required placeholder="Pan Card Number" [ngModelOptions]="{standalone: true}" [(ngModel)]="vjfrm.Pancard">
+            </mat-form-field>
+           
         </div>
     </form>
     <!-- Form -->
     <br />
     <div class="text-center disp-block">
-        <button class="buttonyellow" style="margin-bottom: 20px;margin-top:20px;" mat-raised-button>SAVE</button>
+        <button class="buttonyellow"  (click)="onSignup()" style="margin-bottom: 20px;margin-top:20px;" mat-raised-button>SAVE</button>
     </div>
 </div>

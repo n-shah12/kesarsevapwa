@@ -7,7 +7,11 @@ import { DialogData } from '../../volunteer/vdashboard/index.comp';
     styleUrls: ['./donate.comp.scss']
 })
 export class DonateDialogComponent implements OnInit {
-    constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+    data: any = {};
+    constructor(@Inject(MAT_DIALOG_DATA) public data1: DialogData) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        this.data.Quantity =1;
+
+     }
 }

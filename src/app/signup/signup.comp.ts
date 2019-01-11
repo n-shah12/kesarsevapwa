@@ -60,30 +60,44 @@ export class SignUpComponent implements OnInit {
         var d = {
             Name:this.userMasterForm.Name,
             MobileNo:this.userMasterForm.MobileNo,
-            EmailID:this.userMasterForm.EmailID,
+            EmailID:this.userMasterForm.EmailID.toUpperCase(),
             Password:this.userMasterForm.Password,
             UserId:0,
             UserTypeID:2,
             UserTypecode:"clnt",
             isActive:true,
             isdonor:false,
-            isadmin:false
+            isadmin:false,
+            other:'',
+            flag:'i'
           }
         if(this.validate()){
-            this.signupService_.RegisterUser(d).subscribe((data) => {
-               
-                setTimeout(() => {
+            this.signupService_.RegisterUser(d).subscribe((data:any) => {
+                if(data.status==200){
+                    if(parseInt(data.data.result)>0 ){
+                        setTimeout(() => {
                    
-                    that.router.navigate(['/login']);
-                    that.msg.open('Registered successfully', 'Ok', {
+                            that.router.navigate(['/login']);
+                            that.msg.open('Registered successfully', 'Ok', {
+                                duration:2000
+                            })
+                            setTimeout(() => {
+                                com.hload('.login');
+                            
+                            },1000);
+                            
+                        }, 2000);
+                    }
+                }else{
+                    that.msg.open('Mobile or Email id already exist', 'Ok', {
                         duration:2000
                     })
                     setTimeout(() => {
                         com.hload('.login');
                     
                     },1000);
-                    
-                }, 2000);
+                }
+                
                  
                
     

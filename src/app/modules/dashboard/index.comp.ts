@@ -46,7 +46,9 @@ export class DashboardComponent implements OnInit {
 
 
   }
-
+  openvjfrm(){
+    this.router.navigate(['/vjfrm']);
+  }
   openDialog() {
     this.dialog.open(DonateDialogComponent, {
       data: {
