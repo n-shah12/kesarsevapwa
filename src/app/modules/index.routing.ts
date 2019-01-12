@@ -6,6 +6,7 @@ import { LBComponent } from './leaderboard/lb.comp';
 import { DPComponent } from './donorprofile/dp.comp';
 import { VJFRMComponent } from './vjfrm/vjfrm.comp';
 import { DLComponent } from './donorlist/dl.comp';
+import {  DistributeOrderComponent } from './distributeorderlist/distributeorderlist.comp';
 
 export const routes: Routes = [
 
@@ -34,6 +35,8 @@ export const routes: Routes = [
                     },
                     {
                         path: 'donorlist', component: DLComponent
+                    },{
+                        path: 'orderlist', component: DistributeOrderComponent
                     },
                     {
                         path: 'volunteer', loadChildren: './volunteer/index.module#VolunteerModule',

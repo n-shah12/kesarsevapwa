@@ -10,5 +10,8 @@ constructor(private dataservice:DataService){
 newOrder(data:any){
     return this.dataservice.post('addorder', data);
 }
+getOrder(data:any){
+    return this.dataservice.get('getorders', data);
+}
 
 }

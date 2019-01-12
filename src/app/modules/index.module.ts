@@ -12,6 +12,7 @@ import { DPComponent } from './donorprofile/dp.comp';
 import { VJFRMComponent } from './vjfrm/vjfrm.comp';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DLComponent } from './donorlist/dl.comp';
+import { DistributeOrderComponent } from "./distributeorderlist/distributeorderlist.comp";
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import { DLComponent } from './donorlist/dl.comp';
     MatListModule,
     MatSidenavModule
   ],
-  declarations: [IndexLayoutComponent, JTMVComponent, LBComponent, DPComponent,VJFRMComponent,DLComponent]
+  declarations: [IndexLayoutComponent, JTMVComponent, LBComponent, DPComponent,VJFRMComponent,DLComponent,DistributeOrderComponent]
 })
 export class IndexModule { }
