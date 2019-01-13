@@ -57,6 +57,16 @@
                     </span>
                     <input matInput class="password" type="password" placeholder="Password" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Password" >
                 </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            lock
+                        </i>
+                    </span>
+                    <input matInput type="tel" class="inputmob" placeholder="Address" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Address" value="">
+                </mat-form-field>
+                
+                
             </form>
             <!-- Form -->
             <br />

@@ -37,16 +37,29 @@ export class SignUpComponent implements OnInit {
     validate(){
         var result =true;
         if(this.userMasterForm.Name===""){
-            alert('Enter Name');
+            this.msg.open('Enter Name', '',{
+                duration:4000
+            });
             result=false;
         }else if(this.userMasterForm.MobileNo===""){
-            alert('Enter Mobile No.');
+            this.msg.open('Enter Mobile No.', '',{
+                duration:4000
+            });
             result=false;
         }else if(this.userMasterForm.EmailID===""){
-            alert('Enter Email ID');
+            this.msg.open('Enter Email ID.', '',{
+                duration:4000
+            });
             result=false;
         }else if(this.userMasterForm.Password===""){
-            alert('Enter Password');
+            this.msg.open('Enter Password.', '',{
+                duration:4000
+            });
+            result=false;
+        }else if(this.userMasterForm.Address===""){
+            this.msg.open('Enter Address.', '',{
+                duration:4000
+            });
             result=false;
         }
         return result;
