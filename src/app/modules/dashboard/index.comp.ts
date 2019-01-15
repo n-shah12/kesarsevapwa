@@ -50,9 +50,12 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/vjfrm']);
   }
   openDialog() {
+    let user= this.global.getuser();
+    
     this.dialog.open(DonateDialogComponent, {
       data: {
-        animal: ''
+        animal:'',
+        mode: user 
       },
       minWidth: '250PX'
     });

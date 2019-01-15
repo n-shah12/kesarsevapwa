@@ -18,7 +18,8 @@ export class DistributeOrderComponent implements OnInit {
     user:any;
     isordered:boolean=false
     IsDonte:boolean=false;
-    skuserdetail:any;
+    IsTransfer:boolean=false;
+    userdetail:any;
     userMasterForm: any = {
         OrderId:"0",
         LocationMasterId:"",
@@ -36,31 +37,53 @@ export class DistributeOrderComponent implements OnInit {
         UserTypeID:"",
         isActive:true
     };
+
+    selecteduser:any;
+
+
     constructor(private router: Router,private route: ActivatedRoute,
         public global:GlobalService,private orderservice:OrderService,
         private msg:MatSnackBar,private userservice_:UserService
         ) {
            if(this.route.snapshot.params['SKUserId']!==undefined){
                debugger;
-               this.isordered=true;
+              this.isordered=true;
               this.userMasterForm.SKUserId=this.route.snapshot.params['SKUserId'];
               this.userMasterForm.OrderId=this.route.snapshot.params['OrderId'];
-              this.getuserdata();
+              
               this.getorderdata();
            }
          }
+    
+         
+
 
     ngOnInit(): void {
         this.user= this.global.getuser();
+        this.getuserdata();
        // this.getallorder();
      }
     
+     selectuserchange(){
+        this.userMasterForm.Name=this.selecteduser.Name;
+        this.userMasterForm.Address=this.selecteduser.Address;
+        this.userMasterForm.EmailId=this.selecteduser.EmailID;
+        this.userMasterForm.Contact=this.selecteduser.MobileNo;
+        this.userMasterForm.SKUserId=this.selecteduser.UserId;
+
+     }
+     changetransfer(){
+         this.resetinfo();
+     }
      getuserdata(){
-        this.userservice_.getUsers({"flag":"buid","UserId":parseInt(this.userMasterForm.SKUserId) }).subscribe((data) => {
+        this.userservice_.getUsers({"flag":"a","UserId":parseInt(this.userMasterForm.SKUserId) }).subscribe((data) => {
             if( data.status==200){
-                debugger;
-                this.skuserdetail=data.data;
-                
+                if(data.data.length>0){
+                    var filterdata=data.data.filter(x=>x.UserId!==this.user.UserId && x.UserTypeID!=5 &&  x.UserTypeID!=2);
+                    this.userdetail=filterdata;
+                    
+                }
+
             }
           }, (err) => {
             
@@ -105,18 +128,26 @@ export class DistributeOrderComponent implements OnInit {
                     "OrderId": this.userMasterForm.OrderId,
                     "IsDonte":this.IsDonte,
                     "OrderStatus": 2,
+                    "OrderType": 2,
                     "UpdatedBy": this.user.UserId,
                     "flag": "us"
                 }
                 
     
             }else{
+
+                var SKUserId="0"
+                if(this.userMasterForm.SKUserId!=""){
+                    SKUserId=this.userMasterForm.SKUserId;
+                }
+
+
                 insertupdate = {
                     "OrderId": "0",
                     "LocationMasterId": "0",
                     "Name": this.userMasterForm.Name,
                     "UserId": this.user.UserId,
-                    "SKUserId": "0",
+                    "SKUserId": SKUserId,
                     "Quantity": this.userMasterForm.Quantity,
                     "Address": this.userMasterForm.Address,
                     "Contact": this.userMasterForm.Contact,
@@ -124,7 +155,7 @@ export class DistributeOrderComponent implements OnInit {
                     "Rate": "10",
                     "IsDonte":this.IsDonte,
                     "PaymentMode": 1,
-                    "OrderStatus": 1,
+                    "OrderStatus": 2,
                     "OrderType": 1,
                     "IsActive": true,
                     "CreatedBy": this.user.UserId,
@@ -132,7 +163,6 @@ export class DistributeOrderComponent implements OnInit {
                 }
             }
             
-debugger;
             this.orderservice.newOrder(insertupdate).subscribe((data) => {
                 if(data.data.length > 0){
                  if(this.isordered){
@@ -145,6 +175,7 @@ debugger;
                         duration:4000
                     });
                     this.resetinfo();
+                    this.IsTransfer=false;
                  } 
                  
                 }else{
@@ -181,8 +212,7 @@ debugger;
            this.userMasterForm.UserTypeID="";
            this.userMasterForm.isActive=true;
            this.userMasterForm.EmailId="";
-        
-        
+        this.selecteduser=undefined;
     }
 
 

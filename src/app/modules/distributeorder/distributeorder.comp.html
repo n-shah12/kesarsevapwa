@@ -11,8 +11,21 @@
             <br />
             <br />
             <form class="example-form regiter">
-               
-                <mat-form-field class="example-full-width">
+                    <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsTransfer" (change)="changetransfer()" 
+                    class="example-margin"></mat-slide-toggle>
+                <mat-form-field *ngIf="IsTransfer" class="example-full-width" >
+                        <span matPrefix class="inputicon">
+                                <i class="material-icons">
+                                    person
+                                </i>
+                            </span>
+                            <mat-select placeholder="Select User" [(ngModel)]="selecteduser" (selectionChange)="selectuserchange()" name="food">
+                              <mat-option *ngFor="let user of userdetail" [value]="user">
+                                {{user.Name}}
+                              </mat-option>
+                            </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="!IsTransfer"  class="example-full-width">
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
                             person

@@ -8,7 +8,7 @@ constructor(private dataservice:DataService){
 }
 
 donate(data:any){
-    return this.dataservice.get('donate', data);
+    return this.dataservice.post('donate', data);
 }
 
 }
