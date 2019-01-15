@@ -31,7 +31,7 @@ export class GlobalService {
         const usr =  JSON.parse((localStorage.getItem('user') || '{}'))
        
         if(usr.UserId){
-            this.isvolunteershow = (usr.utypecode === 'sk' || usr.utypecode === 'vl');
+            this.isvolunteershow = (usr.utypecode === 'sk' || usr.utypecode === 'vl'|| usr.utypecode === 'rt' );
         }
         if(this.isvolunteershow){
            

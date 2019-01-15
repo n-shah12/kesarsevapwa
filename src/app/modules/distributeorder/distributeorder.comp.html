@@ -1,0 +1,72 @@
+<!-- Material form login -->
+<div class="loginbackground login">
+
+    <mat-card class="example-card ">
+
+        <!--Card content-->
+        <mat-card-content class="px-lg-5 p-15 text-center">
+            <br />
+            <img style="margin-bottom: 30px" width="150rem" src="./assets/img/logo.png">
+            <!-- Form -->
+            <br />
+            <br />
+            <form class="example-form regiter">
+               
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            person
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" [readonly]="isordered" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Name" placeholder="Name" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            email
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" [readonly]="isordered" placeholder="Email" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.EmailId" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            phone
+                        </i>
+                    </span>
+                    <input matInput type="tel" class="inputmob" [readonly]="isordered" placeholder="Mobile No" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Contact" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            lock
+                        </i>
+                    </span>
+                    <input matInput type="tel" class="inputmob" [readonly]="isordered" placeholder="Address" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Address" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            lock
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" [readonly]="isordered" type="number" min="1" maxlength="100" placeholder="Quantity" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Quantity" >
+                </mat-form-field>
+                <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsDonte" 
+                class="example-margin"></mat-slide-toggle>
+                
+                
+                
+            </form>
+            <!-- Form -->
+            <br />
+            <!-- <button class="loginbutton" style="margin-bottom: 20px;" (click)="onLoinClick()" mat-raised-button>LOG IN</button>
+             -->
+             <button class="loginbutton" style="margin-bottom: 20px;"  (click)="saveorder()" mat-raised-button>Order</button>
+           
+           
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

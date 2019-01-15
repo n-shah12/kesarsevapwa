@@ -72,7 +72,9 @@ export class OrderNwDialogComponent implements OnInit {
                 "DeliveryDate": new Date,
                 "PaymentMode": 1,
                 "OrderStatus": 1,
+                "OrderType": 1,
                 "IsActive": true,
+                "IsDonte":false,
                 "CreatedBy": this.user.UserId,
                 "flag": "iu"
             }

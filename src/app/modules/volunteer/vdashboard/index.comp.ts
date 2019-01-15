@@ -55,6 +55,9 @@ export class VDashComponent implements OnInit {
   myorder(){
     this.router.navigate(['/orderlist']);
   }
+  orderdisribute(){
+    this.router.navigate(['/distribute']);
+  }
   sendlocationdetail() {
     var loc = "(" + this.lat + "," + this.lng + ")";
     var insertupdate = {

@@ -10,5 +10,8 @@ constructor(private dataservice:DataService){
 createuser(data:any){
     return this.dataservice.post('createUser', data);
 }
+getUsers(data:any){
+    return this.dataservice.get('getuserdetail', data);
+}
 
 }

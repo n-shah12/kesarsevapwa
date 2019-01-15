@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from 'src/app/common/global';
 import { OrderService } from '../../services/order-service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-dl',
@@ -8,12 +9,13 @@ import { OrderService } from '../../services/order-service';
     styleUrls: ['./distributeorderlist.comp.scss'],
     providers:[OrderService]
 })
-export class DistributeOrderComponent implements OnInit {
+export class DistributeOrderListComponent implements OnInit {
     leaderlist = ['A', 'B', 'C', 'D', 'D'];
     orderdetailsall:any;
     orderfilterdata:any;
     user:any;
-    constructor(public global:GlobalService,private orderservice:OrderService) { }
+    constructor(private router: Router,private route: ActivatedRoute,
+        public global:GlobalService,private orderservice:OrderService) { }
 
     ngOnInit(): void {
         this.user= this.global.getuser();
@@ -25,20 +27,20 @@ export class DistributeOrderComponent implements OnInit {
         console.log(this.orderfilterdata);  
      }
     getallorder(){
-        this.orderservice.getOrder({"flag":"buid","SKUserId":parseInt(this.user.UserId) }).subscribe((data) => {
+        this.orderservice.getOrder({"flag":"bskuid","SKUserId":parseInt(this.user.UserId) }).subscribe((data) => {
             if( data.status==200){
+                debugger;
                 this.orderdetailsall=data.data;
                 this.filterdata("1");
             }
-          
-
-           debugger;
           }, (err) => {
             
           });
     }
-    getallorderstatus(){
-
+    distribute(data){
+        this.router.navigate(["/distribute",
+       {SKUserId:data.UserId,OrderId:data.OrderId}]);
+       
     }
 
 

@@ -18,8 +18,8 @@
     </div>
     <div class="disp-block text-center p-10 mb-10">
         <mat-list role="list">
-            <mat-list-item *ngFor="let item of orderfilterdata" role="listitem">
-                <div mat-card-avatar (click)="distribute(item)" class="example-header-image"></div> {{item.Name}}<span class="pull-right">{{item.Quantity}}</span>
+            <mat-list-item *ngFor="let item of orderfilterdata" role="listitem"  (click)="distribute(item)">
+                <div mat-card-avatar class="example-header-image"></div> {{item.Name}}<span class="pull-right">{{item.Quantity}}</span>
             </mat-list-item>
 
         </mat-list>

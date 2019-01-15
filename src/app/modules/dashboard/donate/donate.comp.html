@@ -1,23 +1,27 @@
 <div class="dialog-title">
-    <h1 mat-dialog-title>Donate Khichadi</h1>
+    <h1 mat-dialog-title>Donate</h1>
 </div>
 <div class="dialog-content">
     <div class="example-container">
         <mat-form-field>
-            <input matInput placeholder="Add number of plate" [(ngModel)]="data.Quantity">
-        </mat-form-field>
-        <mat-form-field>
             <input matInput placeholder="Name" [(ngModel)]="data.name">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Contact Number" [(ngModel)]="data.mobilenumber">
+                <input matInput placeholder="PAN number" [(ngModel)]="data.UserPAN">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="E-mail Id" [(ngModel)]="data.emailid">
+            <input matInput placeholder="Amount" [(ngModel)]="data.DonationAmount">
+        </mat-form-field>
+       
+        <mat-form-field>
+            <input matInput placeholder="Contact Number" [(ngModel)]="data.Contact">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-mail Id" [(ngModel)]="data.Emailid">
         </mat-form-field>
     </div>
 </div>
 
 <div mat-dialog-actions class="disp-block text-center">
-    <button mat-button [mat-dialog-close]="data.animal" class="btn btn-theme" cdkFocusInitial>Donate</button>
+    <button mat-button (click)="Donate()"  class="btn btn-theme" cdkFocusInitial>Donate</button>
 </div>

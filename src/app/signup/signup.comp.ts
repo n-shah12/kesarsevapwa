@@ -73,8 +73,9 @@ export class SignUpComponent implements OnInit {
         var d = {
             Name:this.userMasterForm.Name,
             MobileNo:this.userMasterForm.MobileNo,
-            EmailID:this.userMasterForm.EmailID.toUpperCase(),
+            EmailID:this.userMasterForm.EmailID.toLowerCase(),
             Password:this.userMasterForm.Password,
+            Address:this.userMasterForm.Address,
             UserId:0,
             UserTypeID:2,
             UserTypecode:"clnt",
@@ -100,6 +101,14 @@ export class SignUpComponent implements OnInit {
                             },1000);
                             
                         }, 2000);
+                    }else{
+                        that.msg.open('Mobile or Email id already exist', 'Ok', {
+                            duration:2000
+                        })
+                        setTimeout(() => {
+                            com.hload('.login');
+                        
+                        },1000);
                     }
                 }else{
                     that.msg.open('Mobile or Email id already exist', 'Ok', {
