@@ -24,7 +24,7 @@ export class DonateDialogComponent implements OnInit {
         if (data1.mode !== '') {
             this.userdatetaila=data1.mode;
             this.data.Name=this.userdatetaila.Name;
-            this.data.MobileNo=this.userdatetaila.Contact;
+            this.data.MobileNo=this.userdatetaila.MobileNo;
         }
      }
 
@@ -44,11 +44,12 @@ export class DonateDialogComponent implements OnInit {
                 "UserId":userid,
                 "DonationAmount":this.data.DonationAmount,
                 "UserPAN":this.data.UserPAN,
-                "PaymentMode":"",
+                "PaymentMode":1,
                 "PaymentDetail":"",
-                "DonationStatus":false,
+                "DonationStatus":"1",
                 "CreatedBy":userid,
                 "Name":this.data.Name,
+                "Contact":this.data.MobileNo,
                 "flag":"iu"
               }
               this.donationservice_.donate(insert).subscribe((data) => {

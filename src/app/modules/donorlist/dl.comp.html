@@ -18,8 +18,8 @@
     </div>
     <div class="disp-block text-center p-10 mb-10">
         <mat-list role="list">
-            <mat-list-item *ngFor="let shoe of leaderlist" role="listitem">
-                <div mat-card-avatar class="example-header-image"></div> {{shoe}}<span class="pull-right">3200</span>
+            <mat-list-item *ngFor="let donor of donorlist" role="listitem">
+                <div mat-card-avatar class="example-header-image"></div> {{donor.Name}}<span class="pull-right">{{donor.Quantity}}</span>
             </mat-list-item>
 
         </mat-list>

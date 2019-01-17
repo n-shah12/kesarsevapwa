@@ -10,12 +10,12 @@
           
 
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/dp' ]" routerLinkActive="active">Profile</a>
-          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/donorlist' ]" routerLinkActive="active">Donor List</a>
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/donorlist' ]" *ngIf="userdetail.isdonorlistview" routerLinkActive="active">Donor List</a>
           
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/leaderboard' ]" routerLinkActive="active">Leader Boards</a>
           <!-- <a mat-list-item (click)="drawer.toggle()" *ngIf="!global.isvolunteershow" [routerLink]="[ '/volunteer' ]" routerLinkActive="active">Volunteer</a> -->
           <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/jtmv' ]" routerLinkActive="active">Join The Movement</a>
-          
+          <a mat-list-item (click)="drawer.toggle()" [routerLink]="[ '/changepassword' ]" routerLinkActive="active">Change Password</a>
           <a mat-list-item (click)="drawer.toggle()" *ngIf="!global.isLogedin()" [routerLink]="[ '/login' ]" routerLinkActive="active">Login</a>
           <a mat-list-item (click)="drawer.toggle()" *ngIf="!global.isLogedin()"  [routerLink]="[ '/signup' ]" routerLinkActive="active">Sign Up</a>
           <a mat-list-item (click)="drawer.toggle();logout();" *ngIf="global.isLogedin()"  routerLinkActive="active">Log Out</a>

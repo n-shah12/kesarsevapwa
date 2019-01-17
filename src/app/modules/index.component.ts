@@ -24,7 +24,7 @@ export class IndexLayoutComponent implements OnInit {
     this.background = this.background ? '' : 'primary';
   }
 
-
+  userdetail:any;
   menu: any = {
     id: '',
     roleid: '',
@@ -52,14 +52,13 @@ export class IndexLayoutComponent implements OnInit {
     });
   }
   ngOnInit() {
-
-
+    this.userdetail= this.global.getuser();
     localStorage.setItem('', '');
 
 
 
 
-    this.getFavmenu();
+   this.getFavmenu();
    this.global.drawer = this.drawer;
 
   }

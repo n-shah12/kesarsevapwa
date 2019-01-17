@@ -14,6 +14,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DLComponent } from './donorlist/dl.comp';
 import { DistributeOrderListComponent } from "./distributeorderlist/distributeorderlist.comp";
 import { DistributeOrderComponent } from "./distributeorder/distributeorder.comp";
+import { AboutusComponent } from "./aboutus/aboutus.comp";
+import { StateComponent } from "./states/states.comp";
+import { PledgeComponent } from "./pledge/pledge.comp";
+import { InspirationComponent } from "./inspiration/inspiration.comp";
+import { InviteComponent } from "./invite/invite.comp";
 
 @NgModule({
   imports: [
@@ -25,6 +30,9 @@ import { DistributeOrderComponent } from "./distributeorder/distributeorder.comp
     MatListModule,
     MatSidenavModule
   ],
-  declarations: [IndexLayoutComponent, JTMVComponent, LBComponent, DPComponent,VJFRMComponent,DLComponent,DistributeOrderListComponent,DistributeOrderComponent]
+  declarations: [IndexLayoutComponent, JTMVComponent, LBComponent,
+     DPComponent,VJFRMComponent,DLComponent,DistributeOrderListComponent,
+     DistributeOrderComponent,AboutusComponent,StateComponent,
+     PledgeComponent,InspirationComponent,InviteComponent]
 })
 export class IndexModule { }

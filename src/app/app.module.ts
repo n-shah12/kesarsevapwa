@@ -13,11 +13,13 @@ import { ESharedModule } from './shared/sharedmodule';
 import { SignUpComponent } from './signup/signup.comp';
 import { LoginService } from '../app/login/login.service';
 import { SignupService } from '../app/signup/signup.service';
+import { ChangePasswordComponent } from "./Changepassword/changepassword.comp";
 @NgModule({
   declarations: [
     AppComponent,
     LoginComp,
-    SignUpComponent
+    SignUpComponent,
+    ChangePasswordComponent
   ],
   imports: [
     HttpClientModule, 
