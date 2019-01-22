@@ -21,7 +21,9 @@ export class LoginComp implements OnInit {
     onSignup() {
         this.router.navigate(['/signup']);
     }
-
+    onForgetpassword(){
+        this.router.navigate(['/forgetpassword']);
+    }
     onHome() {
         this.router.navigate(['/']);
     }
@@ -34,9 +36,18 @@ export class LoginComp implements OnInit {
             if (objuser.length > 0) {
                 const usr = objuser[0];
                 if (usr.UserId !== null && usr.UserId !== undefined) {
-
                     this.global.setuser(JSON.stringify(objuser[0]));
-                    this.global.isRider()
+                    var senddata = { 
+                         "UserMobileNo": this.loginForm.username,
+                         "LoginUserId": usr.UserId, 
+                          "LoginLocation":""
+                        };
+                    this.loginService_.LoginLog(senddata).subscribe((data) => {
+                        if (data.data.length > 0) {
+                            this.global.isRider()
+                        }
+                    });    
+
 
                    
                 } else {

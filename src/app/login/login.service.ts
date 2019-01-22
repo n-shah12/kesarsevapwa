@@ -20,6 +20,10 @@ export class LoginService {
     return this.dataservice.post('userMaster', data);
 
   }
+  LoginLog(data: any) {
+    return this.dataservice.post('loginlog', data);
+
+  }
 
   Login(data: any) {
     // let options = this.createRequestOptions();

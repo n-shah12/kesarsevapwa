@@ -9,5 +9,7 @@ import { GlobalService } from 'src/app/common/global';
 export class IndexComponent implements OnInit {
     constructor(public global:GlobalService) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        debugger;
+     }
 }

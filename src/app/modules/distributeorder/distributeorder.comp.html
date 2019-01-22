@@ -63,7 +63,7 @@
                             lock
                         </i>
                     </span>
-                    <input matInput class="inputmob" [readonly]="isordered" type="number" min="1" maxlength="100" placeholder="Quantity" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Quantity" >
+                    <input matInput class="inputmob" [readonly]="isordered" type="number" min="1"  (input)="validateqty($event.target.value)"   maxlength="100" placeholder="Quantity" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Quantity" >
                 </mat-form-field>
                 <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsDonte" 
                 class="example-margin"></mat-slide-toggle>

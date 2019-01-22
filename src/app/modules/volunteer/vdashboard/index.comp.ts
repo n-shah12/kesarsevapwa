@@ -4,8 +4,8 @@ import { MatDialog, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { MatSlideToggle, MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { RefillDialogComponent } from './refill/refill.comp';
 import { GlobalService } from 'src/app/common/global';
-
 import { VolunterrService } from '../../../services/volunteer-service';
+import { OrderService } from '../../../services/order-service';
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
   locations?: any,
@@ -18,12 +18,12 @@ declare var com: any;
 @Component({
   templateUrl: 'index.comp.html',
   styleUrls: ['./index.comp.scss'],
-  providers: [VolunterrService]
+  providers: [VolunterrService,OrderService]
 })
 export class VDashComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public global: GlobalService, private router: Router,
-    private volunterrservice: VolunterrService, private msg: MatSnackBar) { }
+    private volunterrservice: VolunterrService,private orderservice: OrderService, private msg: MatSnackBar) { }
   openRefillDialog() {
     this.dialog.open(RefillDialogComponent, {
       data: {
@@ -33,12 +33,14 @@ export class VDashComponent implements OnInit {
     });
   }
   title: string = '';
-  lat: number = 23.025165;
-  lng: number = 72.572221;
+  lat: number = 0.0;
+  lng: number = 0.0;
   user: any;
+  inhand:any=0;
   issendlocation: boolean = false;
   isopen: boolean = false;
   ngOnInit(): void {
+    debugger;
     this.user = this.global.getuser();
     if (!(this.user && this.user.UserId)) {
       this.router.navigate(['/login']);
@@ -46,8 +48,10 @@ export class VDashComponent implements OnInit {
       let that = this;
       setTimeout(() => {
         com.load('.example-sidenav-content', 'Waiting for your location');
+        that.getorderdetails();
         that.getLocation();
         that.getLocationbyuserid();
+       
       }, 100);
     }
 
@@ -105,6 +109,20 @@ export class VDashComponent implements OnInit {
     });
   }
 
+  getorderdetails(){
+    
+    var senddata = { "flag": "od", "UserId": this.global.getuser().UserId };
+    this.orderservice.getOrder(senddata).subscribe((data) => {
+      if (data.data.length > 0) {
+        if(data.data[0].inhandqty!==null){
+          this.inhand= data.data[0].inhandqty;
+        }
+        
+      }
+
+    });
+    
+  }
 
 
   //function that gets the location and returns it

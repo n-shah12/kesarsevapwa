@@ -27,7 +27,7 @@ export class DistributeOrderListComponent implements OnInit {
         console.log(this.orderfilterdata);  
      }
     getallorder(){
-        this.orderservice.getOrder({"flag":"bskuid","SKUserId":parseInt(this.user.UserId) }).subscribe((data) => {
+        this.orderservice.getOrder({"flag":"buid","UserId":parseInt(this.user.UserId) }).subscribe((data) => {
             if( data.status==200){
                 debugger;
                 this.orderdetailsall=data.data;

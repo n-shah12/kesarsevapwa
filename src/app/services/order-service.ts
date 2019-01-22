@@ -13,5 +13,8 @@ newOrder(data:any){
 getOrder(data:any){
     return this.dataservice.get('getorders', data);
 }
+getOrderdetail(data:any){
+    return this.dataservice.get('getorders', data);
+}
 
 }

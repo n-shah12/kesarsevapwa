@@ -13,7 +13,8 @@ import { StateComponent } from "./states/states.comp";
 import { PledgeComponent } from "./pledge/pledge.comp";
 import { InspirationComponent } from "./inspiration/inspiration.comp";
 import { InviteComponent } from "./invite/invite.comp";
-
+import { ForgetPasswordComponent } from '../forgetpassword/forgetpassword.comp';
+import { ChangePasswordComponent } from '../Changepassword/changepassword.comp';
 export const routes: Routes = [
 
     {
@@ -55,6 +56,10 @@ export const routes: Routes = [
                         path: 'plegde', component: PledgeComponent
                     },{
                         path: 'invite', component: InviteComponent
+                    },{
+                        path: 'forgetpassword', component: ForgetPasswordComponent
+                    },{
+                        path: 'changepassword', component: ChangePasswordComponent
                     },
                     {
                         path: 'volunteer', loadChildren: './volunteer/index.module#VolunteerModule',

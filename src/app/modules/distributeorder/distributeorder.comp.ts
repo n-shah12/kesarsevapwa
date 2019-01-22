@@ -20,6 +20,7 @@ export class DistributeOrderComponent implements OnInit {
     IsDonte:boolean=false;
     IsTransfer:boolean=false;
     userdetail:any;
+    inhand:any=0;
     userMasterForm: any = {
         OrderId:"0",
         LocationMasterId:"",
@@ -59,8 +60,13 @@ export class DistributeOrderComponent implements OnInit {
 
 
     ngOnInit(): void {
+        debugger;
         this.user= this.global.getuser();
+        if (!(this.user && this.user.UserId)) {
+            this.router.navigate(['/login']);
+          }
         this.getuserdata();
+        this.getorderdetails();
        // this.getallorder();
      }
     
@@ -72,6 +78,31 @@ export class DistributeOrderComponent implements OnInit {
         this.userMasterForm.SKUserId=this.selecteduser.UserId;
 
      }
+     getorderdetails(){
+   
+        var senddata = { "flag": "od", "UserId": this.global.getuser().UserId };
+        this.orderservice.getOrder(senddata).subscribe((data) => {
+          if (data.data.length > 0) {
+            if(data.data[0].inhandqty!==null){
+              this.inhand= parseFloat(data.data[0].inhandqty) ;
+            }
+            
+          }
+    
+        });
+        
+      }
+      validateqty(s){
+         
+          if(this.inhand<this.userMasterForm.Quantity){
+              var message="You have only "+this.inhand+" left.";
+            this.msg.open(message, 'Ok',{
+                duration:4000
+            });
+             this.userMasterForm.Quantity=this.inhand;
+          }
+          
+      }
      changetransfer(){
          this.resetinfo();
      }
@@ -140,7 +171,11 @@ export class DistributeOrderComponent implements OnInit {
                 if(this.userMasterForm.SKUserId!=""){
                     SKUserId=this.userMasterForm.SKUserId;
                 }
-
+                var ordertype=2;
+                debugger;
+                if(this.IsTransfer){
+                    ordertype=1;
+                }
 
                 insertupdate = {
                     "OrderId": "0",
@@ -156,7 +191,7 @@ export class DistributeOrderComponent implements OnInit {
                     "IsDonte":this.IsDonte,
                     "PaymentMode": 1,
                     "OrderStatus": 2,
-                    "OrderType": 1,
+                    "OrderType": ordertype,
                     "IsActive": true,
                     "CreatedBy": this.user.UserId,
                     "flag": "iu"

@@ -19,7 +19,8 @@ import { StateComponent } from "./states/states.comp";
 import { PledgeComponent } from "./pledge/pledge.comp";
 import { InspirationComponent } from "./inspiration/inspiration.comp";
 import { InviteComponent } from "./invite/invite.comp";
-
+import { ChangePasswordComponent } from "../Changepassword/changepassword.comp";
+import { ForgetPasswordComponent } from "../forgetpassword/forgetpassword.comp";
 @NgModule({
   imports: [
     CommonModule,
@@ -33,6 +34,6 @@ import { InviteComponent } from "./invite/invite.comp";
   declarations: [IndexLayoutComponent, JTMVComponent, LBComponent,
      DPComponent,VJFRMComponent,DLComponent,DistributeOrderListComponent,
      DistributeOrderComponent,AboutusComponent,StateComponent,
-     PledgeComponent,InspirationComponent,InviteComponent]
+     PledgeComponent,InspirationComponent,InviteComponent,ChangePasswordComponent,ForgetPasswordComponent]
 })
 export class IndexModule { }
