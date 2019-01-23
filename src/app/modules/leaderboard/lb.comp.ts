@@ -7,7 +7,7 @@ import { GlobalService } from 'src/app/common/global';
     styleUrls: ['./lb.comp.scss']
 })
 export class LBComponent implements OnInit {
-    leaderlist = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+    leaderlist = [];
     constructor(public global:GlobalService) { }
 
     ngOnInit(): void { }

@@ -1,5 +1,5 @@
 export class Globals {
-    static weburl: String =window.location.hostname;   
+    static weburl: String = 'app.kesarsewa.org'//window.location.hostname;   
     //'142.93.214.212';//window.location.hostname;
     static port: String = '8082';
 
