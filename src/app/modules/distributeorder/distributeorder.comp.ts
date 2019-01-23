@@ -21,6 +21,9 @@ export class DistributeOrderComponent implements OnInit {
     IsTransfer: any = 0;
     userdetail: any;
     inhand: any = 0;
+    sold: any = 0;
+    available: any = 0;
+    donate: any = 0
     userMasterForm: any = {
         OrderId: "0",
         LocationMasterId: "",
@@ -66,7 +69,7 @@ export class DistributeOrderComponent implements OnInit {
         }
         this.getuserdata();
         this.getorderdetails();
-        this.IsTransfer  = 0;
+        this.IsTransfer = 0;
         // this.getallorder();
     }
 
@@ -84,7 +87,9 @@ export class DistributeOrderComponent implements OnInit {
         this.orderservice.getOrder(senddata).subscribe((data) => {
             if (data.data.length > 0) {
                 if (data.data[0].inhandqty !== null) {
-                    this.inhand = parseFloat(data.data[0].inhandqty);
+                    this.available = parseInt(data.data[0].inhandqty);
+                    this.sold = parseInt(data.data[0].sold);
+                    this.donate = parseInt(data.data[0].donate);
                 }
 
             }
@@ -206,11 +211,13 @@ export class DistributeOrderComponent implements OnInit {
                         });
                         this.router.navigate(["/orderlist"]);
                     } else {
-                        this.msg.open('Order successfully', 'Ok', {
+
+                        this.msg.open( (this.IsTransfer == 1 ? 'Transfered successfully' : 'Order Distribute Successfully' ) , 'Ok', {
                             duration: 4000
                         });
                         this.resetinfo();
                         this.IsTransfer = 0;
+                        this.getorderdetails();
                     }
 
                 } else {
@@ -225,6 +232,12 @@ export class DistributeOrderComponent implements OnInit {
 
     }
     vaildate() {
+        if(this.IsTransfer == 1 && this.selecteduser ==  undefined){
+            this.msg.open('Please select user to transfer.', 'Ok', {
+                duration: 4000
+            })
+            return false;
+        }
         return true;
 
     }
