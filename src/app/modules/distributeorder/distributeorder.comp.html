@@ -1,5 +1,14 @@
-<!-- Material form login -->
-<div class="loginbackground login">
+<mat-toolbar color="primary" class="mat-theme">
+    <mat-toolbar-row>
+        <button mat-button (click)="global.drawer.toggle()" class="toolbar-menu-button">
+            <i class="material-icons">dehaze</i>
+        </button>
+        <span>Distribute</span>
+        <span class="example-spacer"></span>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="maincontent">
 
     <mat-card class="example-card ">
 
@@ -11,73 +20,90 @@
             <br />
             <br />
             <form class="example-form regiter">
-                    <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsTransfer" (change)="changetransfer()" 
-                    class="example-margin"></mat-slide-toggle>
-                <mat-form-field *ngIf="IsTransfer" class="example-full-width" >
-                        <span matPrefix class="inputicon">
-                                <i class="material-icons">
-                                    person
-                                </i>
-                            </span>
-                            <mat-select placeholder="Select User" [(ngModel)]="selecteduser" (selectionChange)="selectuserchange()" name="food">
-                              <mat-option *ngFor="let user of userdetail" [value]="user">
-                                {{user.Name}}
-                              </mat-option>
-                            </mat-select>
-                </mat-form-field>
-                <mat-form-field *ngIf="!IsTransfer"  class="example-full-width">
+                <!-- <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsTransfer" (change)="changetransfer()"
+                    class="example-margin"></mat-slide-toggle> -->
+                <mat-radio-group [ngModelOptions]="{standalone: true}"  [(ngModel)]="IsTransfer">
+                    <mat-radio-button [value]="0">Customer</mat-radio-button> 
+                    &nbsp;&nbsp;
+                    <mat-radio-button [value]="1" >Transfer</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field *ngIf="IsTransfer == 1" class="example-full-width mt-10">
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
                             person
                         </i>
                     </span>
-                    <input matInput class="inputmob" [readonly]="isordered" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Name" placeholder="Name" value="">
+                    <mat-select placeholder="Select User" [(ngModel)]="selecteduser" (selectionChange)="selectuserchange()"
+                        name="food">
+                        <mat-option *ngFor="let user of userdetail" [value]="user">
+                            {{user.Name}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
+                <mat-form-field *ngIf="IsTransfer == 0" class="example-full-width mt-10">
+                    <span matPrefix class="inputicon">
+                        <i class="material-icons">
+                            person
+                        </i>
+                    </span>
+                    <input matInput class="inputmob" [readonly]="isordered" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="userMasterForm.Name" placeholder="Name" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width mt-10">
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
                             email
                         </i>
                     </span>
-                    <input matInput class="inputmob" [readonly]="isordered" placeholder="Email" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.EmailId" value="">
+                    <input matInput class="inputmob" [readonly]="isordered" placeholder="Email" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="userMasterForm.EmailId" value="">
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="example-full-width mt-10">
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
                             phone
                         </i>
                     </span>
-                    <input matInput type="tel" class="inputmob" [readonly]="isordered" placeholder="Mobile No" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Contact" value="">
+                    <input matInput type="tel" class="inputmob" [readonly]="isordered" placeholder="Mobile No"
+                        [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Contact" value="">
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
+                <mat-form-field *ngIf="IsTransfer == 0" class="example-full-width mt-10" >
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
-                            lock
+                            place
                         </i>
                     </span>
-                    <input matInput type="tel" class="inputmob" [readonly]="isordered" placeholder="Address" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Address" value="">
+                    <input matInput type="tel" class="inputmob" [readonly]="isordered" placeholder="Address"
+                        [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Address" value="">
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="example-full-width mt-10">
                     <span matPrefix class="inputicon">
                         <i class="material-icons">
-                            lock
+                            add    
                         </i>
                     </span>
-                    <input matInput class="inputmob" [readonly]="isordered" type="number" min="1"  (input)="validateqty($event.target.value)"   maxlength="100" placeholder="Quantity" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Quantity" >
+                    <input matInput class="inputmob" [readonly]="isordered" type="number" min="1" (input)="validateqty($event.target.value)"
+                        maxlength="100" placeholder="Quantity" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMasterForm.Quantity">
                 </mat-form-field>
-                <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsDonte" 
-                class="example-margin"></mat-slide-toggle>
-                
-                
-                
+
+                <mat-radio-group [ngModelOptions]="{standalone: true}"  class="mt-10" [(ngModel)]="IsDonte">
+                    <mat-radio-button [value]="0">Sold</mat-radio-button> 
+                    &nbsp;&nbsp;
+                    <mat-radio-button [value]="1" >Donate</mat-radio-button>
+                </mat-radio-group>
+                <!-- <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsDonte" class="example-margin"></mat-slide-toggle>
+
+ -->
+
             </form>
             <!-- Form -->
             <br />
             <!-- <button class="loginbutton" style="margin-bottom: 20px;" (click)="onLoinClick()" mat-raised-button>LOG IN</button>
              -->
-             <button class="loginbutton" style="margin-bottom: 20px;"  (click)="saveorder()" mat-raised-button>Order</button>
-           
-           
+            <button class="loginbutton mt-10" style="margin-bottom: 20px;" (click)="saveorder()" mat-raised-button>Distribute</button>
+
+
         </mat-card-content>
 
     </mat-card>

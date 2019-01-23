@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatSnackBarModule } from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
     declarations: [],
     imports: [
@@ -31,7 +32,8 @@ import { MatSnackBarModule } from '@angular/material';
         MatDialogModule,
         HttpModule,
         FormsModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatRadioModule
         
     ],
     exports: [MatToolbarModule,
@@ -47,7 +49,8 @@ import { MatSnackBarModule } from '@angular/material';
         FormsModule,
         HttpModule,
         MatDialogModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatRadioModule
 ],
     providers: [],
 })
