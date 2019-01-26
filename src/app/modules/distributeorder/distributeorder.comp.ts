@@ -75,7 +75,8 @@ export class DistributeOrderComponent implements OnInit {
     }
 
     selectuserchange() {
-        this.userMasterForm.Name = this.selecteduser.Name;
+        debugger;
+        this.userMasterForm.Name = this.selecteduser.username;
         this.userMasterForm.Address = this.selecteduser.Address;
         this.userMasterForm.EmailId = this.selecteduser.EmailID;
         this.userMasterForm.Contact = this.selecteduser.MobileNo;
