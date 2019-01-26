@@ -25,7 +25,8 @@ export class JTMVComponent implements OnInit {
 
     }
     Volunteer(){
-
+        this.router.navigate(['/vjfrm']);
+        
     }
     Plegde(){
         this.router.navigate(['/plegde']);
