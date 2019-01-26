@@ -49,13 +49,14 @@ export class DistributeOrderComponent implements OnInit {
         public global: GlobalService, private orderservice: OrderService,
         private msg: MatSnackBar, private userservice_: UserService
     ) {
-        if (this.route.snapshot.params['SKUserId'] !== undefined) {
-            debugger;
+        if (this.route.snapshot.params['OrderId'] !== undefined) {
             this.isordered = true;
             this.userMasterForm.SKUserId = this.route.snapshot.params['SKUserId'];
             this.userMasterForm.OrderId = this.route.snapshot.params['OrderId'];
 
             this.getorderdata();
+        }else{
+            this.userMasterForm.OrderId="";
         }
     }
 
@@ -97,26 +98,31 @@ export class DistributeOrderComponent implements OnInit {
         });
 
     }
+
+    checktypeoftrans(){
+            this.resetinfo();
+       
+    }
+
     validateqty(s) {
 
-        if (this.inhand < this.userMasterForm.Quantity) {
-            var message = "You have only " + this.inhand + " left.";
-            this.msg.open(message, 'Ok', {
-                duration: 4000
-            });
-            this.userMasterForm.Quantity = this.inhand;
-        }
+        // if (this.inhand < this.userMasterForm.Quantity) {
+        //     var message = "You have only " + this.inhand + " left.";
+        //     this.msg.open(message, 'Ok', {
+        //         duration: 4000
+        //     });
+        //     this.userMasterForm.Quantity = this.inhand;
+        // }
 
     }
     changetransfer() {
         this.resetinfo();
     }
     getuserdata() {
-        this.userservice_.getUsers({ "flag": "a", "UserId": parseInt(this.userMasterForm.SKUserId) }).subscribe((data) => {
+        this.userservice_.getUsers({ "flag": "bskuserid", "UserId": parseInt(this.user.UserId) }).subscribe((data) => {
             if (data.status == 200) {
                 if (data.data.length > 0) {
-                    var filterdata = data.data.filter(x => x.UserId !== this.user.UserId && x.UserTypeID != 5 && x.UserTypeID != 2);
-                    this.userdetail = filterdata;
+                 this.userdetail = data.data;
 
                 }
 
@@ -155,6 +161,7 @@ export class DistributeOrderComponent implements OnInit {
     }
 
     saveorder() {
+        debugger;
         if (this.vaildate()) {
             //new order
             var insertupdate;
@@ -232,8 +239,14 @@ export class DistributeOrderComponent implements OnInit {
 
     }
     vaildate() {
+        var maxqty=this.available>100?100:this.available;
         if(this.IsTransfer == 1 && this.selecteduser ==  undefined){
             this.msg.open('Please select user to transfer.', 'Ok', {
+                duration: 4000
+            })
+            return false;
+        }else if(this.userMasterForm.Quantity>maxqty){
+            this.msg.open('Please enter quantity between 1 to '+maxqty, 'Ok', {
                 duration: 4000
             })
             return false;
@@ -244,7 +257,7 @@ export class DistributeOrderComponent implements OnInit {
 
     resetinfo() {
 
-        this.userMasterForm.OrderId = "0";
+        this.userMasterForm.OrderId = "";
         this.userMasterForm.LocationMasterId = "";
         this.userMasterForm.Name = "";
         this.userMasterForm.UserId = "";

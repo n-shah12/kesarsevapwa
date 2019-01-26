@@ -11,15 +11,16 @@
 <div class="maincontent">
     <div class="disp-block text-center p-10 mb-10">
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle  (click)="filterdata('1')"checked="true"  value="bold">Pending</mat-button-toggle>
-            <mat-button-toggle (click)="filterdata('2')" value="underline">delivered</mat-button-toggle>
+            <mat-button-toggle  (click)="filterdata(1,'f')"checked="true"  value="bold">Pending</mat-button-toggle>
+            <mat-button-toggle (click)="filterdata(2,'f')" value="underline">delivered</mat-button-toggle>
+            <mat-button-toggle (click)="filterdata(2,'t')" value="underline">Transaction</mat-button-toggle>
             <!-- <mat-button-toggle (click)="filterdata('3')" value="underline">Canceled</mat-button-toggle> -->
         </mat-button-toggle-group>
     </div>
     <div class="disp-block text-center p-10 mb-10">
         <mat-list role="list">
-            <mat-list-item *ngFor="let item of orderfilterdata" role="listitem"  (click)="distribute(item)">
-                <div mat-card-avatar class="example-header-image"></div> {{item.Name}}<span class="pull-right">{{item.Quantity}}</span>
+            <mat-list-item *ngFor="let item of orderdetailsall" role="listitem"  (click)="distribute(item)">
+               #{{item.OrderId}} <i *ngIf="item.in" class="material-icons" style="color: green">arrow_downward</i><i *ngIf="item.out" class="material-icons" style="color: red">arrow_upward</i> <b style="text-transform: capitalize;margin-left:4px ">{{item.Name}}</b><span class="pull-right">{{item.Quantity}}</span>
             </mat-list-item>
 
         </mat-list>

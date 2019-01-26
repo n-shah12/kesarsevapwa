@@ -14,6 +14,8 @@ export class DistributeOrderListComponent implements OnInit {
     orderdetailsall:any;
     orderfilterdata:any;
     user:any;
+    status:any=1;
+    ttype:any="f";
     constructor(private router: Router,private route: ActivatedRoute,
         public global:GlobalService,private orderservice:OrderService) { }
 
@@ -22,22 +24,24 @@ export class DistributeOrderListComponent implements OnInit {
         this.getallorder();
      }
     
-     filterdata(status){
-        this.orderfilterdata=this.orderdetailsall.filter(x=>x.OrderStatus==status);
-        console.log(this.orderfilterdata);  
+     filterdata(status,type){
+        this.status=status;
+        this.ttype=type;
+        this.getallorder();
      }
     getallorder(){
-        this.orderservice.getOrder({"flag":"buid","UserId":parseInt(this.user.UserId) }).subscribe((data) => {
+        this.orderservice.getOrder({"flag":"bskuid","status":this.status,"ttype":this.ttype,"SKUserId":parseInt(this.user.UserId) }).subscribe((data) => {
             if( data.status==200){
-                debugger;
                 this.orderdetailsall=data.data;
-                this.filterdata("1");
             }
           }, (err) => {
             
           });
     }
     distribute(data){
+        if(data.OrderStatus!=1){
+            return;
+        }
         this.router.navigate(["/distribute",
        {SKUserId:data.UserId,OrderId:data.OrderId}]);
        

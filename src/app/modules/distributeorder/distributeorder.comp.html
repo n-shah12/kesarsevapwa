@@ -54,10 +54,10 @@
             <!-- Form -->
             <br />
             <br />
-            <form class="example-form regiter">
+            <form class="example-form regiter"  >
                 <!-- <mat-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="IsTransfer" (change)="changetransfer()"
                     class="example-margin"></mat-slide-toggle> -->
-                <mat-radio-group [ngModelOptions]="{standalone: true}"  [(ngModel)]="IsTransfer">
+                <mat-radio-group [ngModelOptions]="{standalone: true}" (change)="checktypeoftrans()"  *ngIf="userMasterForm.OrderId ==''"  [(ngModel)]="IsTransfer">
                     <mat-radio-button [value]="0">Customer</mat-radio-button> 
                     &nbsp;&nbsp;
                     <mat-radio-button [value]="1" >Transfer</mat-radio-button>
@@ -119,11 +119,11 @@
                         </i>
                     </span>
                     <input matInput class="inputmob" [readonly]="isordered" type="number" min="1" (input)="validateqty($event.target.value)"
-                        maxlength="100" placeholder="Quantity" [ngModelOptions]="{standalone: true}" 
+                        max="100" placeholder="Quantity" [ngModelOptions]="{standalone: true}" 
                         [(ngModel)]="userMasterForm.Quantity">
                 </mat-form-field>
 
-                <mat-radio-group [ngModelOptions]="{standalone: true}"  class="mt-10" [(ngModel)]="IsDonte">
+                <mat-radio-group [ngModelOptions]="{standalone: true}" *ngIf="IsTransfer == 0" class="mt-10" [(ngModel)]="IsDonte">
                     <mat-radio-button [value]="0">Sold</mat-radio-button> 
                     &nbsp;&nbsp;
                     <mat-radio-button [value]="1" >Donate</mat-radio-button>

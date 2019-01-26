@@ -3,7 +3,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { from } from 'rxjs';
-import { MatDrawer } from '@angular/material';
+import { MatDrawer, MatSnackBar } from '@angular/material';
 import { GlobalService } from '../common/global';
 @Component({
   selector: 'app-modules',
@@ -39,7 +39,9 @@ export class IndexLayoutComponent implements OnInit {
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement = document.body;
-  constructor(private router: Router, public global:GlobalService) {
+  constructor(private router: Router, 
+    private msg:MatSnackBar,
+    public global:GlobalService) {
     this.env = environment;
 
 
@@ -89,6 +91,10 @@ export class IndexLayoutComponent implements OnInit {
 
 
   logout() {
+
+    this.msg.open('Logout successfully', 'Ok',{
+      duration:4000
+    });
     // this.env.isAuthenticated = false;
     this.global.clearuser();
     this.router.navigateByUrl('/');

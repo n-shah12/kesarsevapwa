@@ -74,13 +74,13 @@ export class DonateDialogComponent implements OnInit {
             return false;
          }else if(this.data.UserPAN==""||this.data.UserPAN==undefined){
 
-            this.msg.open('Please enter name', '',{
+            this.msg.open('Please enter pan number', '',{
                 duration:4000
             });
             return false;
          }else if(this.data.DonationAmount==""||this.data.DonationAmount==undefined){
 
-            this.msg.open('Please enter name', '',{
+            this.msg.open('Please enter amount', '',{
                 duration:4000
             });
             return false;
